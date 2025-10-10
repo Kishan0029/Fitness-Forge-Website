@@ -1,103 +1,204 @@
-import Image from "next/image";
+"use client";
+
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
+import { Dumbbell, Users, Award, TrendingUp, CheckCircle, ArrowRight } from "lucide-react";
+import { Card } from "@/components/ui/card";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <>
+      <Navigation />
+      
+      {/* Hero Section */}
+      <section 
+        className="relative h-screen flex items-center justify-center bg-cover bg-center"
+        style={{
+          backgroundImage: "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&q=80')"
+        }}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
+          <h1 className="text-6xl md:text-8xl font-bold text-white mb-6 tracking-wider">
+            FORGE YOUR STRENGTH
+          </h1>
+          <p className="text-2xl md:text-4xl text-[var(--gym-red)] font-bold mb-4">
+            Build Your Legacy.
+          </p>
+          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+            Transform your body and mind at Fitness Forge. Where champions are made and limits are broken.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/join">
+              <Button className="bg-[var(--gym-red)] hover:bg-[var(--gym-red)]/90 text-white font-bold px-8 py-6 text-lg rounded-lg shadow-xl hover:shadow-2xl transition-all">
+                JOIN NOW
+              </Button>
+            </Link>
+            <Link href="/contact">
+              <Button variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-black font-bold px-8 py-6 text-lg rounded-lg transition-all">
+                BOOK A FREE TRIAL
+              </Button>
+            </Link>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold text-black mb-4">WHY CHOOSE FITNESS FORGE?</h2>
+            <p className="text-xl text-[var(--gym-grey)]">We deliver results that matter</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl">
+              <div className="bg-[var(--gym-red)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Dumbbell className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold mb-3">EXPERT TRAINERS</h3>
+              <p className="text-[var(--gym-grey)]">
+                Certified professionals dedicated to your success
+              </p>
+            </Card>
+            <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl">
+              <div className="bg-[var(--gym-red)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Users className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold mb-3">COMMUNITY</h3>
+              <p className="text-[var(--gym-grey)]">
+                Join a supportive family that pushes you forward
+              </p>
+            </Card>
+            <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl">
+              <div className="bg-[var(--gym-red)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Award className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold mb-3">TOP EQUIPMENT</h3>
+              <p className="text-[var(--gym-grey)]">
+                State-of-the-art facilities and modern equipment
+              </p>
+            </Card>
+            <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl">
+              <div className="bg-[var(--gym-red)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <TrendingUp className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold mb-3">PROVEN RESULTS</h3>
+              <p className="text-[var(--gym-grey)]">
+                Track your progress and achieve your goals
+              </p>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Programs Preview */}
+      <section className="py-20 bg-black text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold mb-4">OUR PROGRAMS</h2>
+            <p className="text-xl text-[var(--gym-grey)]">Find the perfect training program for you</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="relative overflow-hidden rounded-xl group cursor-pointer">
+              <img 
+                src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=600&q=80" 
+                alt="Strength Training"
+                className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent flex flex-col justify-end p-6">
+                <h3 className="text-3xl font-bold mb-2">STRENGTH TRAINING</h3>
+                <p className="text-[var(--gym-grey)] mb-4">Build muscle and increase power</p>
+                <Link href="/programs">
+                  <Button variant="outline" className="border-[var(--gym-red)] text-[var(--gym-red)] hover:bg-[var(--gym-red)] hover:text-white w-fit">
+                    LEARN MORE <ArrowRight className="ml-2 w-4 h-4" />
+                  </Button>
+                </Link>
+              </div>
+            </div>
+            <div className="relative overflow-hidden rounded-xl group cursor-pointer">
+              <img 
+                src="https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?w=600&q=80" 
+                alt="CrossFit"
+                className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent flex flex-col justify-end p-6">
+                <h3 className="text-3xl font-bold mb-2">CROSSFIT</h3>
+                <p className="text-[var(--gym-grey)] mb-4">High-intensity functional fitness</p>
+                <Link href="/programs">
+                  <Button variant="outline" className="border-[var(--gym-red)] text-[var(--gym-red)] hover:bg-[var(--gym-red)] hover:text-white w-fit">
+                    LEARN MORE <ArrowRight className="ml-2 w-4 h-4" />
+                  </Button>
+                </Link>
+              </div>
+            </div>
+            <div className="relative overflow-hidden rounded-xl group cursor-pointer">
+              <img 
+                src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&q=80" 
+                alt="Personal Training"
+                className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent flex flex-col justify-end p-6">
+                <h3 className="text-3xl font-bold mb-2">PERSONAL TRAINING</h3>
+                <p className="text-[var(--gym-grey)] mb-4">One-on-one customized coaching</p>
+                <Link href="/programs">
+                  <Button variant="outline" className="border-[var(--gym-red)] text-[var(--gym-red)] hover:bg-[var(--gym-red)] hover:text-white w-fit">
+                    LEARN MORE <ArrowRight className="ml-2 w-4 h-4" />
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-[var(--gym-red)] text-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-5xl font-bold mb-6">READY TO START YOUR TRANSFORMATION?</h2>
+          <p className="text-xl mb-8 opacity-90">
+            Join hundreds of members who have already transformed their lives at Fitness Forge
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/join">
+              <Button className="bg-black hover:bg-black/90 text-white font-bold px-8 py-6 text-lg rounded-lg">
+                GET STARTED TODAY
+              </Button>
+            </Link>
+            <Link href="/membership">
+              <Button variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-[var(--gym-red)] font-bold px-8 py-6 text-lg rounded-lg">
+                VIEW MEMBERSHIP PLANS
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+            <div>
+              <div className="text-5xl font-bold text-[var(--gym-red)] mb-2">5000+</div>
+              <div className="text-xl text-[var(--gym-grey)]">Active Members</div>
+            </div>
+            <div>
+              <div className="text-5xl font-bold text-[var(--gym-red)] mb-2">50+</div>
+              <div className="text-xl text-[var(--gym-grey)]">Expert Trainers</div>
+            </div>
+            <div>
+              <div className="text-5xl font-bold text-[var(--gym-red)] mb-2">10+</div>
+              <div className="text-xl text-[var(--gym-grey)]">Years Experience</div>
+            </div>
+            <div>
+              <div className="text-5xl font-bold text-[var(--gym-red)] mb-2">24/7</div>
+              <div className="text-xl text-[var(--gym-grey)]">Access Available</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </>
   );
 }
