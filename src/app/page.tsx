@@ -36,7 +36,7 @@ export default function Home() {
               </Button>
             </Link>
             <Link href="/contact">
-              <Button variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-black font-bold px-8 py-6 text-lg rounded-lg transition-all">
+              <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-black font-bold px-8 py-6 text-lg rounded-lg transition-all shadow-xs">
                 BOOK A FREE TRIAL
               </Button>
             </Link>
@@ -166,7 +166,7 @@ export default function Home() {
               </Button>
             </Link>
             <Link href="/membership">
-              <Button variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-[var(--gym-red)] font-bold px-8 py-6 text-lg rounded-lg">
+              <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[var(--gym-red)] font-bold px-8 py-6 text-lg rounded-lg shadow-xs transition-all">
                 VIEW MEMBERSHIP PLANS
               </Button>
             </Link>
