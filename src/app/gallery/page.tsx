@@ -37,21 +37,6 @@ export default function GalleryPage() {
     "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=800&q=80"
   ];
 
-  const staggerContainer = {
-    animate: {
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const imageVariant = {
-    initial: { opacity: 0, scale: 0.8 },
-    whileInView: { opacity: 1, scale: 1 },
-    viewport: { once: true },
-    transition: { duration: 0.5 }
-  };
-
   return (
     <>
       <Navigation />
@@ -67,7 +52,7 @@ export default function GalleryPage() {
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.4 }}
             className="text-6xl md:text-7xl font-bold text-white mb-4 tracking-wider"
           >
             GALLERY
@@ -75,7 +60,7 @@ export default function GalleryPage() {
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
             className="text-xl text-[var(--gym-red)] font-bold"
           >
             See Where Champions Are Made
@@ -87,37 +72,27 @@ export default function GalleryPage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Tabs defaultValue="gym" className="w-full">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-3 mb-12 h-14">
-                <TabsTrigger value="gym" className="text-lg font-bold data-[state=active]:bg-[var(--gym-red)] data-[state=active]:text-white">
-                  GYM INTERIOR
-                </TabsTrigger>
-                <TabsTrigger value="training" className="text-lg font-bold data-[state=active]:bg-[var(--gym-red)] data-[state=active]:text-white">
-                  TRAINING
-                </TabsTrigger>
-                <TabsTrigger value="transformations" className="text-lg font-bold data-[state=active]:bg-[var(--gym-red)] data-[state=active]:text-white">
-                  TRANSFORMATIONS
-                </TabsTrigger>
-              </TabsList>
-            </motion.div>
+            <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-3 mb-12 h-14">
+              <TabsTrigger value="gym" className="text-lg font-bold data-[state=active]:bg-[var(--gym-red)] data-[state=active]:text-white">
+                GYM INTERIOR
+              </TabsTrigger>
+              <TabsTrigger value="training" className="text-lg font-bold data-[state=active]:bg-[var(--gym-red)] data-[state=active]:text-white">
+                TRAINING
+              </TabsTrigger>
+              <TabsTrigger value="transformations" className="text-lg font-bold data-[state=active]:bg-[var(--gym-red)] data-[state=active]:text-white">
+                TRANSFORMATIONS
+              </TabsTrigger>
+            </TabsList>
 
             <TabsContent value="gym">
-              <motion.div 
-                variants={staggerContainer}
-                initial="initial"
-                whileInView="animate"
-                viewport={{ once: true }}
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-              >
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {gymInterior.map((image, index) => (
                   <motion.div 
                     key={index}
-                    variants={imageVariant}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: index * 0.03 }}
                     whileHover={{ scale: 1.05 }}
                     className="relative overflow-hidden rounded-xl cursor-pointer group"
                     onClick={() => setSelectedImage(image)}
@@ -125,7 +100,7 @@ export default function GalleryPage() {
                     <img 
                       src={image} 
                       alt={`Gym interior ${index + 1}`}
-                      className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all flex items-center justify-center">
                       <span className="text-white font-bold text-lg opacity-0 group-hover:opacity-100 transition-opacity">
@@ -134,21 +109,18 @@ export default function GalleryPage() {
                     </div>
                   </motion.div>
                 ))}
-              </motion.div>
+              </div>
             </TabsContent>
 
             <TabsContent value="training">
-              <motion.div 
-                variants={staggerContainer}
-                initial="initial"
-                whileInView="animate"
-                viewport={{ once: true }}
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-              >
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {training.map((image, index) => (
                   <motion.div 
                     key={index}
-                    variants={imageVariant}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: index * 0.03 }}
                     whileHover={{ scale: 1.05 }}
                     className="relative overflow-hidden rounded-xl cursor-pointer group"
                     onClick={() => setSelectedImage(image)}
@@ -156,7 +128,7 @@ export default function GalleryPage() {
                     <img 
                       src={image} 
                       alt={`Training ${index + 1}`}
-                      className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all flex items-center justify-center">
                       <span className="text-white font-bold text-lg opacity-0 group-hover:opacity-100 transition-opacity">
@@ -165,21 +137,18 @@ export default function GalleryPage() {
                     </div>
                   </motion.div>
                 ))}
-              </motion.div>
+              </div>
             </TabsContent>
 
             <TabsContent value="transformations">
-              <motion.div 
-                variants={staggerContainer}
-                initial="initial"
-                whileInView="animate"
-                viewport={{ once: true }}
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-              >
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {transformations.map((image, index) => (
                   <motion.div 
                     key={index}
-                    variants={imageVariant}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: index * 0.03 }}
                     whileHover={{ scale: 1.05 }}
                     className="relative overflow-hidden rounded-xl cursor-pointer group"
                     onClick={() => setSelectedImage(image)}
@@ -187,7 +156,7 @@ export default function GalleryPage() {
                     <img 
                       src={image} 
                       alt={`Transformation ${index + 1}`}
-                      className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all flex items-center justify-center">
                       <span className="text-white font-bold text-lg opacity-0 group-hover:opacity-100 transition-opacity">
@@ -196,7 +165,7 @@ export default function GalleryPage() {
                     </div>
                   </motion.div>
                 ))}
-              </motion.div>
+              </div>
             </TabsContent>
           </Tabs>
         </div>
@@ -209,6 +178,7 @@ export default function GalleryPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
             className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
             onClick={() => setSelectedImage(null)}
           >
@@ -223,10 +193,10 @@ export default function GalleryPage() {
                 ×
               </motion.button>
               <motion.img 
-                initial={{ scale: 0.8, opacity: 0 }}
+                initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.8, opacity: 0 }}
-                transition={{ duration: 0.3 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                transition={{ duration: 0.2 }}
                 src={selectedImage} 
                 alt="Full size"
                 className="w-full h-auto rounded-xl"

@@ -85,7 +85,7 @@ export default function MembershipPage() {
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.5 }}
             className="text-6xl md:text-7xl font-bold text-white mb-4 tracking-wider"
           >
             MEMBERSHIP PLANS
@@ -93,7 +93,7 @@ export default function MembershipPage() {
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
             className="text-xl text-[var(--gym-red)] font-bold"
           >
             Choose Your Path to Greatness
@@ -108,7 +108,7 @@ export default function MembershipPage() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.4 }}
             className="text-center mb-16"
           >
             <h2 className="text-5xl font-bold text-black mb-4">OUR PLANS</h2>
@@ -121,11 +121,12 @@ export default function MembershipPage() {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ scale: 1.05, y: -10 }}
+                transition={{ duration: 0.3, delay: index * 0.05 }}
+                whileHover={{ scale: 1.03, y: -5 }}
+                className="h-full"
               >
                 <Card 
-                  className="relative p-8 border-2 border-[var(--gym-grey)]/20 hover:border-[var(--gym-red)] hover:shadow-2xl transition-all h-full"
+                  className="relative p-8 border-2 border-[var(--gym-grey)]/20 hover:border-[var(--gym-red)] hover:shadow-2xl transition-all h-full flex flex-col"
                 >
                   <div className="text-center mb-6">
                     <h3 className="text-3xl font-bold mb-2">{plan.name}</h3>
@@ -135,22 +136,18 @@ export default function MembershipPage() {
                     </div>
                     <span className="text-[var(--gym-grey)] text-sm">/{plan.period}</span>
                   </div>
-                  <div className="space-y-3 mb-8">
+                  <div className="space-y-3 mb-8 flex-grow">
                     {plan.features.map((feature, idx) => (
-                      <motion.div 
+                      <div 
                         key={feature} 
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.3, delay: idx * 0.1 }}
                         className="flex items-start gap-3"
                       >
                         <CheckCircle className="w-5 h-5 text-[var(--gym-red)] flex-shrink-0 mt-0.5" />
                         <span className="text-[var(--gym-grey)] text-sm">{feature}</span>
-                      </motion.div>
+                      </div>
                     ))}
                   </div>
-                  <Link href="/join">
+                  <Link href="/join" className="mt-auto">
                     <Button className="w-full bg-black hover:bg-black/90 text-white font-bold py-6 text-lg rounded-lg hover:scale-105 transition-all">
                       JOIN NOW
                     </Button>
@@ -169,7 +166,7 @@ export default function MembershipPage() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.4 }}
             className="text-4xl font-bold text-center mb-12"
           >
             ALL PLANS INCLUDE
@@ -179,7 +176,7 @@ export default function MembershipPage() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
+              transition={{ duration: 0.3, delay: 0.05 }}
               className="flex items-start gap-3"
             >
               <CheckCircle className="w-6 h-6 text-[var(--gym-red)] flex-shrink-0 mt-1" />
@@ -192,7 +189,7 @@ export default function MembershipPage() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              transition={{ duration: 0.3, delay: 0.1 }}
               className="flex items-start gap-3"
             >
               <CheckCircle className="w-6 h-6 text-[var(--gym-red)] flex-shrink-0 mt-1" />
@@ -205,7 +202,7 @@ export default function MembershipPage() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
+              transition={{ duration: 0.3, delay: 0.15 }}
               className="flex items-start gap-3"
             >
               <CheckCircle className="w-6 h-6 text-[var(--gym-red)] flex-shrink-0 mt-1" />
@@ -218,7 +215,7 @@ export default function MembershipPage() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.4 }}
+              transition={{ duration: 0.3, delay: 0.2 }}
               className="flex items-start gap-3"
             >
               <CheckCircle className="w-6 h-6 text-[var(--gym-red)] flex-shrink-0 mt-1" />

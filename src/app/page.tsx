@@ -72,7 +72,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.4 }}
             className="text-center mb-16"
           >
             <h2 className="text-5xl font-bold text-black mb-4">WHY CHOOSE FITNESS FORGE?</h2>
@@ -83,18 +83,19 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
+              transition={{ duration: 0.3, delay: 0.05 }}
+              className="h-full"
             >
-              <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl">
+              <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl h-full flex flex-col">
                 <motion.div 
                   whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.6 }}
+                  transition={{ duration: 0.4 }}
                   className="bg-[var(--gym-red)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
                 >
                   <Dumbbell className="w-8 h-8 text-white" />
                 </motion.div>
                 <h3 className="text-2xl font-bold mb-3">WORLD-CLASS EQUIPMENT</h3>
-                <p className="text-[var(--gym-grey)]">
+                <p className="text-[var(--gym-grey)] flex-grow">
                   All equipment from international bodybuilding videos, most spacious gym in Belgaum
                 </p>
               </Card>
@@ -103,18 +104,19 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              transition={{ duration: 0.3, delay: 0.1 }}
+              className="h-full"
             >
-              <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl">
+              <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl h-full flex flex-col">
                 <motion.div 
                   whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.6 }}
+                  transition={{ duration: 0.4 }}
                   className="bg-[var(--gym-red)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
                 >
                   <Users className="w-8 h-8 text-white" />
                 </motion.div>
                 <h3 className="text-2xl font-bold mb-3">EXPERT TRAINERS</h3>
-                <p className="text-[var(--gym-grey)]">
+                <p className="text-[var(--gym-grey)] flex-grow">
                   Exceptional and knowledgeable trainers dedicated to your success
                 </p>
               </Card>
@@ -123,18 +125,19 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
+              transition={{ duration: 0.3, delay: 0.15 }}
+              className="h-full"
             >
-              <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl">
+              <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl h-full flex flex-col">
                 <motion.div 
                   whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.6 }}
+                  transition={{ duration: 0.4 }}
                   className="bg-[var(--gym-red)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
                 >
                   <Award className="w-8 h-8 text-white" />
                 </motion.div>
                 <h3 className="text-2xl font-bold mb-3">PRISTINE FACILITIES</h3>
-                <p className="text-[var(--gym-grey)]">
+                <p className="text-[var(--gym-grey)] flex-grow">
                   Meticulously cleaned, well-maintained, with continuous fresh air ventilation
                 </p>
               </Card>
@@ -143,18 +146,19 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.4 }}
+              transition={{ duration: 0.3, delay: 0.2 }}
+              className="h-full"
             >
-              <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl">
+              <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl h-full flex flex-col">
                 <motion.div 
                   whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.6 }}
+                  transition={{ duration: 0.4 }}
                   className="bg-[var(--gym-red)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
                 >
                   <TrendingUp className="w-8 h-8 text-white" />
                 </motion.div>
                 <h3 className="text-2xl font-bold mb-3">NATURE & POOL</h3>
-                <p className="text-[var(--gym-grey)]">
+                <p className="text-[var(--gym-grey)] flex-grow">
                   Only gym in town close to nature with swimming pool and parking facility
                 </p>
               </Card>

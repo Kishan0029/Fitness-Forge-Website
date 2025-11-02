@@ -110,7 +110,7 @@ export default function TestimonialsPage() {
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.4 }}
             className="text-6xl md:text-7xl font-bold text-white mb-4 tracking-wider"
           >
             SUCCESS STORIES
@@ -118,7 +118,7 @@ export default function TestimonialsPage() {
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
             className="text-xl text-[var(--gym-red)] font-bold"
           >
             Real People. Real Results.
@@ -134,7 +134,7 @@ export default function TestimonialsPage() {
               initial={{ opacity: 0, scale: 0 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, type: "spring" }}
+              transition={{ duration: 0.4, type: "spring" }}
             >
               <div className="text-5xl font-bold text-[var(--gym-red)] mb-2">1000+</div>
               <div className="text-lg text-[var(--gym-grey)]">Transformations</div>
@@ -143,7 +143,7 @@ export default function TestimonialsPage() {
               initial={{ opacity: 0, scale: 0 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1, type: "spring" }}
+              transition={{ duration: 0.4, delay: 0.05, type: "spring" }}
             >
               <div className="text-5xl font-bold text-[var(--gym-red)] mb-2">50K+</div>
               <div className="text-lg text-[var(--gym-grey)]">Pounds Lost</div>
@@ -152,7 +152,7 @@ export default function TestimonialsPage() {
               initial={{ opacity: 0, scale: 0 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2, type: "spring" }}
+              transition={{ duration: 0.4, delay: 0.1, type: "spring" }}
             >
               <div className="text-5xl font-bold text-[var(--gym-red)] mb-2">98%</div>
               <div className="text-lg text-[var(--gym-grey)]">Satisfaction Rate</div>
@@ -161,7 +161,7 @@ export default function TestimonialsPage() {
               initial={{ opacity: 0, scale: 0 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3, type: "spring" }}
+              transition={{ duration: 0.4, delay: 0.15, type: "spring" }}
             >
               <div className="text-5xl font-bold text-[var(--gym-red)] mb-2">4.9/5</div>
               <div className="text-lg text-[var(--gym-grey)]">Average Rating</div>
@@ -177,7 +177,7 @@ export default function TestimonialsPage() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.4 }}
             className="text-center mb-16"
           >
             <h2 className="text-5xl font-bold text-black mb-4">HEAR FROM OUR MEMBERS</h2>
@@ -190,29 +190,14 @@ export default function TestimonialsPage() {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: (index % 6) * 0.1 }}
-                whileHover={{ y: -10, scale: 1.02 }}
+                transition={{ duration: 0.3, delay: (index % 6) * 0.05 }}
+                whileHover={{ y: -5, scale: 1.01 }}
               >
                 <Card className="p-8 border-2 hover:border-[var(--gym-red)] hover:shadow-xl transition-all h-full">
-                  <motion.div
-                    initial={{ rotate: -180, opacity: 0 }}
-                    whileInView={{ rotate: 0, opacity: 0.2 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                  >
-                    <Quote className="w-12 h-12 text-[var(--gym-red)] mb-4" />
-                  </motion.div>
+                  <Quote className="w-12 h-12 text-[var(--gym-red)] mb-4 opacity-20" />
                   <div className="flex gap-1 mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <motion.div
-                        key={i}
-                        initial={{ opacity: 0, scale: 0 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.3, delay: i * 0.1 }}
-                      >
-                        <Star className="w-5 h-5 text-[var(--gym-red)] fill-current" />
-                      </motion.div>
+                      <Star key={i} className="w-5 h-5 text-[var(--gym-red)] fill-current" />
                     ))}
                   </div>
                   <p className="text-[var(--gym-grey)] mb-6 italic">
@@ -235,7 +220,7 @@ export default function TestimonialsPage() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.4 }}
             className="text-5xl font-bold mb-6"
           >
             READY TO WRITE YOUR SUCCESS STORY?
@@ -244,7 +229,7 @@ export default function TestimonialsPage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
             className="text-xl mb-8 opacity-90"
           >
             Join our community and become our next transformation success story
@@ -253,7 +238,7 @@ export default function TestimonialsPage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
             href="/join"
           >
             <motion.button 

@@ -49,7 +49,7 @@ export default function AboutPage() {
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.4 }}
             className="text-6xl md:text-7xl font-bold text-white mb-4 tracking-wider"
           >
             ABOUT FITNESS FORGE
@@ -57,7 +57,7 @@ export default function AboutPage() {
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
             className="text-xl text-[var(--gym-red)] font-bold"
           >
             Where Champions Are Forged
@@ -73,7 +73,7 @@ export default function AboutPage() {
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.4 }}
             >
               <h2 className="text-5xl font-bold text-black mb-6">OUR STORY</h2>
               <p className="text-lg text-[var(--gym-grey)] mb-4">
@@ -90,7 +90,7 @@ export default function AboutPage() {
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.4 }}
               className="rounded-xl overflow-hidden shadow-2xl"
             >
               <img 
@@ -110,7 +110,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.4 }}
             className="text-center mb-16"
           >
             <h2 className="text-5xl font-bold mb-4">OUR VALUES</h2>
@@ -121,12 +121,12 @@ export default function AboutPage() {
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
+              transition={{ duration: 0.3, delay: 0.05 }}
             >
               <Card className="bg-[var(--gym-grey)]/10 border-[var(--gym-grey)]/20 p-8 text-center hover:border-[var(--gym-red)] transition-all">
                 <motion.div 
                   whileHover={{ rotate: 360, scale: 1.1 }}
-                  transition={{ duration: 0.6 }}
+                  transition={{ duration: 0.4 }}
                   className="bg-[var(--gym-red)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
                 >
                   <Target className="w-8 h-8 text-white" />
@@ -141,12 +141,12 @@ export default function AboutPage() {
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              transition={{ duration: 0.3, delay: 0.1 }}
             >
               <Card className="bg-[var(--gym-grey)]/10 border-[var(--gym-grey)]/20 p-8 text-center hover:border-[var(--gym-red)] transition-all">
                 <motion.div 
                   whileHover={{ rotate: 360, scale: 1.1 }}
-                  transition={{ duration: 0.6 }}
+                  transition={{ duration: 0.4 }}
                   className="bg-[var(--gym-red)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
                 >
                   <Heart className="w-8 h-8 text-white" />
@@ -161,12 +161,12 @@ export default function AboutPage() {
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
+              transition={{ duration: 0.3, delay: 0.15 }}
             >
               <Card className="bg-[var(--gym-grey)]/10 border-[var(--gym-grey)]/20 p-8 text-center hover:border-[var(--gym-red)] transition-all">
                 <motion.div 
                   whileHover={{ rotate: 360, scale: 1.1 }}
-                  transition={{ duration: 0.6 }}
+                  transition={{ duration: 0.4 }}
                   className="bg-[var(--gym-red)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
                 >
                   <Users className="w-8 h-8 text-white" />
@@ -181,12 +181,12 @@ export default function AboutPage() {
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.4 }}
+              transition={{ duration: 0.3, delay: 0.2 }}
             >
               <Card className="bg-[var(--gym-grey)]/10 border-[var(--gym-grey)]/20 p-8 text-center hover:border-[var(--gym-red)] transition-all">
                 <motion.div 
                   whileHover={{ rotate: 360, scale: 1.1 }}
-                  transition={{ duration: 0.6 }}
+                  transition={{ duration: 0.4 }}
                   className="bg-[var(--gym-red)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
                 >
                   <TrendingUp className="w-8 h-8 text-white" />
@@ -208,7 +208,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.4 }}
             className="text-center mb-16"
           >
             <h2 className="text-5xl font-bold text-black mb-4">MEET OUR TRAINERS</h2>
@@ -221,13 +221,13 @@ export default function AboutPage() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
+                transition={{ duration: 0.3, delay: index * 0.05 }}
+                whileHover={{ y: -5 }}
               >
                 <Card className="overflow-hidden border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl">
                   <motion.img 
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.5 }}
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
                     src={trainer.image} 
                     alt={trainer.name}
                     className="w-full h-80 object-cover"
