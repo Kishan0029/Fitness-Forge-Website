@@ -1,9 +1,12 @@
+"use client";
+
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { CheckCircle } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function MembershipPage() {
   const plans = [
@@ -67,6 +70,21 @@ export default function MembershipPage() {
     }
   ];
 
+  const staggerContainer = {
+    animate: {
+      transition: {
+        staggerChildren: 0.15
+      }
+    }
+  };
+
+  const cardVariant = {
+    initial: { opacity: 0, y: 50 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true },
+    transition: { duration: 0.5 }
+  };
+
   return (
     <>
       <Navigation />
@@ -79,89 +97,150 @@ export default function MembershipPage() {
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 pt-20">
-          <h1 className="text-6xl md:text-7xl font-bold text-white mb-4 tracking-wider">
+          <motion.h1 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-6xl md:text-7xl font-bold text-white mb-4 tracking-wider"
+          >
             MEMBERSHIP PLANS
-          </h1>
-          <p className="text-xl text-[var(--gym-red)] font-bold">
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-xl text-[var(--gym-red)] font-bold"
+          >
             Choose Your Path to Greatness
-          </p>
+          </motion.p>
         </div>
       </section>
 
       {/* Plans */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
             <h2 className="text-5xl font-bold text-black mb-4">OUR PLANS</h2>
             <p className="text-xl text-[var(--gym-grey)]">Flexible membership options to fit your lifestyle</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {plans.map((plan) => (
-              <Card 
+          </motion.div>
+          <motion.div 
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          >
+            {plans.map((plan, index) => (
+              <motion.div
                 key={plan.name}
-                className="relative p-8 border-2 border-[var(--gym-grey)]/20 hover:border-[var(--gym-red)] hover:shadow-2xl transition-all"
+                variants={cardVariant}
+                whileHover={{ scale: 1.05, y: -10 }}
+                transition={{ duration: 0.3 }}
               >
-                <div className="text-center mb-6">
-                  <h3 className="text-3xl font-bold mb-2">{plan.name}</h3>
-                  <p className="text-[var(--gym-grey)] text-sm mb-4">{plan.description}</p>
-                  <div className="flex items-end justify-center gap-2">
-                    <span className="text-5xl font-bold text-black">₹{plan.price}</span>
-                  </div>
-                  <span className="text-[var(--gym-grey)] text-sm">/{plan.period}</span>
-                </div>
-                <div className="space-y-3 mb-8">
-                  {plan.features.map((feature) => (
-                    <div key={feature} className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-[var(--gym-red)] flex-shrink-0 mt-0.5" />
-                      <span className="text-[var(--gym-grey)] text-sm">{feature}</span>
+                <Card 
+                  className="relative p-8 border-2 border-[var(--gym-grey)]/20 hover:border-[var(--gym-red)] hover:shadow-2xl transition-all h-full"
+                >
+                  <div className="text-center mb-6">
+                    <h3 className="text-3xl font-bold mb-2">{plan.name}</h3>
+                    <p className="text-[var(--gym-grey)] text-sm mb-4">{plan.description}</p>
+                    <div className="flex items-end justify-center gap-2">
+                      <span className="text-5xl font-bold text-black">₹{plan.price}</span>
                     </div>
-                  ))}
-                </div>
-                <Link href="/join">
-                  <Button className="w-full bg-black hover:bg-black/90 text-white font-bold py-6 text-lg rounded-lg">
-                    JOIN NOW
-                  </Button>
-                </Link>
-              </Card>
+                    <span className="text-[var(--gym-grey)] text-sm">/{plan.period}</span>
+                  </div>
+                  <div className="space-y-3 mb-8">
+                    {plan.features.map((feature, idx) => (
+                      <motion.div 
+                        key={feature} 
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.3, delay: idx * 0.1 }}
+                        className="flex items-start gap-3"
+                      >
+                        <CheckCircle className="w-5 h-5 text-[var(--gym-red)] flex-shrink-0 mt-0.5" />
+                        <span className="text-[var(--gym-grey)] text-sm">{feature}</span>
+                      </motion.div>
+                    ))}
+                  </div>
+                  <Link href="/join">
+                    <Button className="w-full bg-black hover:bg-black/90 text-white font-bold py-6 text-lg rounded-lg hover:scale-105 transition-all">
+                      JOIN NOW
+                    </Button>
+                  </Link>
+                </Card>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Additional Info */}
       <section className="py-20 bg-black text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center mb-12">ALL PLANS INCLUDE</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="flex items-start gap-3">
+          <motion.h2 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl font-bold text-center mb-12"
+          >
+            ALL PLANS INCLUDE
+          </motion.h2>
+          <motion.div 
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          >
+            <motion.div 
+              variants={cardVariant}
+              className="flex items-start gap-3"
+            >
               <CheckCircle className="w-6 h-6 text-[var(--gym-red)] flex-shrink-0 mt-1" />
               <div>
                 <h3 className="font-bold text-lg mb-1">No Joining Fees</h3>
                 <p className="text-[var(--gym-grey)] text-sm">Start immediately with no hidden costs</p>
               </div>
-            </div>
-            <div className="flex items-start gap-3">
+            </motion.div>
+            <motion.div 
+              variants={cardVariant}
+              className="flex items-start gap-3"
+            >
               <CheckCircle className="w-6 h-6 text-[var(--gym-red)] flex-shrink-0 mt-1" />
               <div>
                 <h3 className="font-bold text-lg mb-1">Modern Equipment</h3>
                 <p className="text-[var(--gym-grey)] text-sm">State-of-the-art machines and facilities</p>
               </div>
-            </div>
-            <div className="flex items-start gap-3">
+            </motion.div>
+            <motion.div 
+              variants={cardVariant}
+              className="flex items-start gap-3"
+            >
               <CheckCircle className="w-6 h-6 text-[var(--gym-red)] flex-shrink-0 mt-1" />
               <div>
                 <h3 className="font-bold text-lg mb-1">Free Trial</h3>
                 <p className="text-[var(--gym-grey)] text-sm">Try before you commit</p>
               </div>
-            </div>
-            <div className="flex items-start gap-3">
+            </motion.div>
+            <motion.div 
+              variants={cardVariant}
+              className="flex items-start gap-3"
+            >
               <CheckCircle className="w-6 h-6 text-[var(--gym-red)] flex-shrink-0 mt-1" />
               <div>
                 <h3 className="font-bold text-lg mb-1">Expert Trainers</h3>
                 <p className="text-[var(--gym-grey)] text-sm">Professional guidance for your fitness journey</p>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
