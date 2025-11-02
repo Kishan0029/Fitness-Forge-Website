@@ -6,8 +6,30 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Dumbbell, Users, Award, TrendingUp, CheckCircle, ArrowRight } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { motion } from "framer-motion";
 
 export default function Home() {
+  const fadeInUp = {
+    initial: { opacity: 0, y: 60 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6 }
+  };
+
+  const staggerContainer = {
+    animate: {
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const scaleIn = {
+    initial: { opacity: 0, scale: 0.8 },
+    whileInView: { opacity: 1, scale: 1 },
+    viewport: { once: true },
+    transition: { duration: 0.5 }
+  };
+
   return (
     <>
       <Navigation />
@@ -20,87 +42,159 @@ export default function Home() {
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
-          <h1 className="text-6xl md:text-8xl font-bold text-white mb-6 tracking-wider">
+          <motion.h1 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-6xl md:text-8xl font-bold text-white mb-6 tracking-wider"
+          >
             FORGE YOUR STRENGTH
-          </h1>
-          <p className="text-2xl md:text-4xl text-[var(--gym-red)] font-bold mb-4">
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-2xl md:text-4xl text-[var(--gym-red)] font-bold mb-4"
+          >
             Build Your Legacy.
-          </p>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+          </motion.p>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="text-xl text-white/90 mb-8 max-w-2xl mx-auto"
+          >
             Transform your body and mind at Fitness Forge. Where champions are made and limits are broken.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          </motion.p>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+          >
             <Link href="/join">
-              <Button className="bg-[var(--gym-red)] hover:bg-[var(--gym-red)]/90 text-white font-bold px-8 py-6 text-lg rounded-lg shadow-xl hover:shadow-2xl transition-all">
+              <Button className="bg-[var(--gym-red)] hover:bg-[var(--gym-red)]/90 text-white font-bold px-8 py-6 text-lg rounded-lg shadow-xl hover:shadow-2xl transition-all hover:scale-105">
                 JOIN NOW
               </Button>
             </Link>
             <Link href="/contact">
-              <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-black font-bold px-8 py-6 text-lg rounded-lg transition-all shadow-xs">
+              <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-black font-bold px-8 py-6 text-lg rounded-lg transition-all shadow-xs hover:scale-105">
                 BOOK A FREE TRIAL
               </Button>
             </Link>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Why Choose Us */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
             <h2 className="text-5xl font-bold text-black mb-4">WHY CHOOSE FITNESS FORGE?</h2>
             <p className="text-xl text-[var(--gym-grey)]">Belgaum's premier fitness destination</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl">
-              <div className="bg-[var(--gym-red)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Dumbbell className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold mb-3">WORLD-CLASS EQUIPMENT</h3>
-              <p className="text-[var(--gym-grey)]">
-                All equipment from international bodybuilding videos, most spacious gym in Belgaum
-              </p>
-            </Card>
-            <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl">
-              <div className="bg-[var(--gym-red)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold mb-3">EXPERT TRAINERS</h3>
-              <p className="text-[var(--gym-grey)]">
-                Exceptional and knowledgeable trainers dedicated to your success
-              </p>
-            </Card>
-            <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl">
-              <div className="bg-[var(--gym-red)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Award className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold mb-3">PRISTINE FACILITIES</h3>
-              <p className="text-[var(--gym-grey)]">
-                Meticulously cleaned, well-maintained, with continuous fresh air ventilation
-              </p>
-            </Card>
-            <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl">
-              <div className="bg-[var(--gym-red)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <TrendingUp className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold mb-3">NATURE & POOL</h3>
-              <p className="text-[var(--gym-grey)]">
-                Only gym in town close to nature with swimming pool and parking facility
-              </p>
-            </Card>
-          </div>
+          </motion.div>
+          <motion.div 
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          >
+            <motion.div variants={scaleIn}>
+              <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl">
+                <motion.div 
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.6 }}
+                  className="bg-[var(--gym-red)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+                >
+                  <Dumbbell className="w-8 h-8 text-white" />
+                </motion.div>
+                <h3 className="text-2xl font-bold mb-3">WORLD-CLASS EQUIPMENT</h3>
+                <p className="text-[var(--gym-grey)]">
+                  All equipment from international bodybuilding videos, most spacious gym in Belgaum
+                </p>
+              </Card>
+            </motion.div>
+            <motion.div variants={scaleIn}>
+              <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl">
+                <motion.div 
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.6 }}
+                  className="bg-[var(--gym-red)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+                >
+                  <Users className="w-8 h-8 text-white" />
+                </motion.div>
+                <h3 className="text-2xl font-bold mb-3">EXPERT TRAINERS</h3>
+                <p className="text-[var(--gym-grey)]">
+                  Exceptional and knowledgeable trainers dedicated to your success
+                </p>
+              </Card>
+            </motion.div>
+            <motion.div variants={scaleIn}>
+              <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl">
+                <motion.div 
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.6 }}
+                  className="bg-[var(--gym-red)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+                >
+                  <Award className="w-8 h-8 text-white" />
+                </motion.div>
+                <h3 className="text-2xl font-bold mb-3">PRISTINE FACILITIES</h3>
+                <p className="text-[var(--gym-grey)]">
+                  Meticulously cleaned, well-maintained, with continuous fresh air ventilation
+                </p>
+              </Card>
+            </motion.div>
+            <motion.div variants={scaleIn}>
+              <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl">
+                <motion.div 
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.6 }}
+                  className="bg-[var(--gym-red)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+                >
+                  <TrendingUp className="w-8 h-8 text-white" />
+                </motion.div>
+                <h3 className="text-2xl font-bold mb-3">NATURE & POOL</h3>
+                <p className="text-[var(--gym-grey)]">
+                  Only gym in town close to nature with swimming pool and parking facility
+                </p>
+              </Card>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* Programs Preview */}
       <section className="py-20 bg-black text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
             <h2 className="text-5xl font-bold mb-4">OUR PROGRAMS</h2>
             <p className="text-xl text-[var(--gym-grey)]">Find the perfect training program for you</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="relative overflow-hidden rounded-xl group cursor-pointer">
+          </motion.div>
+          <motion.div 
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          >
+            <motion.div 
+              variants={scaleIn}
+              whileHover={{ scale: 1.05 }}
+              className="relative overflow-hidden rounded-xl group cursor-pointer"
+            >
               <img 
                 src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=600&q=80" 
                 alt="Strength Training"
@@ -110,8 +204,12 @@ export default function Home() {
                 <h3 className="text-3xl font-bold mb-2">STRENGTH TRAINING</h3>
                 <p className="text-[var(--gym-grey)] mb-4">Build muscle and increase power</p>
               </div>
-            </div>
-            <div className="relative overflow-hidden rounded-xl group cursor-pointer">
+            </motion.div>
+            <motion.div 
+              variants={scaleIn}
+              whileHover={{ scale: 1.05 }}
+              className="relative overflow-hidden rounded-xl group cursor-pointer"
+            >
               <img 
                 src="https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?w=600&q=80" 
                 alt="CrossFit"
@@ -121,8 +219,12 @@ export default function Home() {
                 <h3 className="text-3xl font-bold mb-2">CROSSFIT</h3>
                 <p className="text-[var(--gym-grey)] mb-4">High-intensity functional fitness</p>
               </div>
-            </div>
-            <div className="relative overflow-hidden rounded-xl group cursor-pointer">
+            </motion.div>
+            <motion.div 
+              variants={scaleIn}
+              whileHover={{ scale: 1.05 }}
+              className="relative overflow-hidden rounded-xl group cursor-pointer"
+            >
               <img 
                 src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&q=80" 
                 alt="Personal Training"
@@ -132,54 +234,112 @@ export default function Home() {
                 <h3 className="text-3xl font-bold mb-2">YOGA</h3>
                 <p className="text-[var(--gym-grey)] mb-4">Mind and body wellness</p>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="py-20 bg-[var(--gym-red)] text-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-5xl font-bold mb-6">READY TO START YOUR TRANSFORMATION?</h2>
-          <p className="text-xl mb-8 opacity-90">
+          <motion.h2 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-5xl font-bold mb-6"
+          >
+            READY TO START YOUR TRANSFORMATION?
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-xl mb-8 opacity-90"
+          >
             Join hundreds of members who have already transformed their lives at Fitness Forge
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          </motion.p>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+          >
             <Link href="/join">
-              <Button className="bg-black hover:bg-black/90 text-white font-bold px-8 py-6 text-lg rounded-lg">
+              <Button className="bg-black hover:bg-black/90 text-white font-bold px-8 py-6 text-lg rounded-lg hover:scale-105 transition-all">
                 GET STARTED TODAY
               </Button>
             </Link>
             <Link href="/membership">
-              <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[var(--gym-red)] font-bold px-8 py-6 text-lg rounded-lg shadow-xs transition-all">
+              <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[var(--gym-red)] font-bold px-8 py-6 text-lg rounded-lg shadow-xs transition-all hover:scale-105">
                 VIEW MEMBERSHIP PLANS
               </Button>
             </Link>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Stats Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-5xl font-bold text-[var(--gym-red)] mb-2">5000+</div>
+          <motion.div 
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center"
+          >
+            <motion.div variants={scaleIn}>
+              <motion.div 
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, type: "spring" }}
+                className="text-5xl font-bold text-[var(--gym-red)] mb-2"
+              >
+                5000+
+              </motion.div>
               <div className="text-xl text-[var(--gym-grey)]">Active Members</div>
-            </div>
-            <div>
-              <div className="text-5xl font-bold text-[var(--gym-red)] mb-2">50+</div>
+            </motion.div>
+            <motion.div variants={scaleIn}>
+              <motion.div 
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1, type: "spring" }}
+                className="text-5xl font-bold text-[var(--gym-red)] mb-2"
+              >
+                50+
+              </motion.div>
               <div className="text-xl text-[var(--gym-grey)]">Expert Trainers</div>
-            </div>
-            <div>
-              <div className="text-5xl font-bold text-[var(--gym-red)] mb-2">10+</div>
+            </motion.div>
+            <motion.div variants={scaleIn}>
+              <motion.div 
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2, type: "spring" }}
+                className="text-5xl font-bold text-[var(--gym-red)] mb-2"
+              >
+                10+
+              </motion.div>
               <div className="text-xl text-[var(--gym-grey)]">Years Experience</div>
-            </div>
-            <div>
-              <div className="text-5xl font-bold text-[var(--gym-red)] mb-2">24/7</div>
+            </motion.div>
+            <motion.div variants={scaleIn}>
+              <motion.div 
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3, type: "spring" }}
+                className="text-5xl font-bold text-[var(--gym-red)] mb-2"
+              >
+                24/7
+              </motion.div>
               <div className="text-xl text-[var(--gym-grey)]">Access Available</div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
