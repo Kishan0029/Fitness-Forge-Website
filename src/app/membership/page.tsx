@@ -70,21 +70,6 @@ export default function MembershipPage() {
     }
   ];
 
-  const staggerContainer = {
-    animate: {
-      transition: {
-        staggerChildren: 0.15
-      }
-    }
-  };
-
-  const cardVariant = {
-    initial: { opacity: 0, y: 50 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true },
-    transition: { duration: 0.5 }
-  };
-
   return (
     <>
       <Navigation />
@@ -129,19 +114,15 @@ export default function MembershipPage() {
             <h2 className="text-5xl font-bold text-black mb-4">OUR PLANS</h2>
             <p className="text-xl text-[var(--gym-grey)]">Flexible membership options to fit your lifestyle</p>
           </motion.div>
-          <motion.div 
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-          >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {plans.map((plan, index) => (
               <motion.div
                 key={plan.name}
-                variants={cardVariant}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ scale: 1.05, y: -10 }}
-                transition={{ duration: 0.3 }}
               >
                 <Card 
                   className="relative p-8 border-2 border-[var(--gym-grey)]/20 hover:border-[var(--gym-red)] hover:shadow-2xl transition-all h-full"
@@ -177,7 +158,7 @@ export default function MembershipPage() {
                 </Card>
               </motion.div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -193,15 +174,12 @@ export default function MembershipPage() {
           >
             ALL PLANS INCLUDE
           </motion.h2>
-          <motion.div 
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-6"
-          >
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <motion.div 
-              variants={cardVariant}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
               className="flex items-start gap-3"
             >
               <CheckCircle className="w-6 h-6 text-[var(--gym-red)] flex-shrink-0 mt-1" />
@@ -211,7 +189,10 @@ export default function MembershipPage() {
               </div>
             </motion.div>
             <motion.div 
-              variants={cardVariant}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
               className="flex items-start gap-3"
             >
               <CheckCircle className="w-6 h-6 text-[var(--gym-red)] flex-shrink-0 mt-1" />
@@ -221,7 +202,10 @@ export default function MembershipPage() {
               </div>
             </motion.div>
             <motion.div 
-              variants={cardVariant}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
               className="flex items-start gap-3"
             >
               <CheckCircle className="w-6 h-6 text-[var(--gym-red)] flex-shrink-0 mt-1" />
@@ -231,7 +215,10 @@ export default function MembershipPage() {
               </div>
             </motion.div>
             <motion.div 
-              variants={cardVariant}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
               className="flex items-start gap-3"
             >
               <CheckCircle className="w-6 h-6 text-[var(--gym-red)] flex-shrink-0 mt-1" />
@@ -240,7 +227,7 @@ export default function MembershipPage() {
                 <p className="text-[var(--gym-grey)] text-sm">Professional guidance for your fitness journey</p>
               </div>
             </motion.div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
