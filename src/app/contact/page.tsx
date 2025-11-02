@@ -66,9 +66,8 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-bold text-lg mb-1">ADDRESS</h3>
                       <p className="text-[var(--gym-grey)]">
-                        123 Strength Street<br />
-                        Fitness District<br />
-                        New York, NY 10001
+                        Dwarka Nagar, Godse Nagar<br />
+                        Belagavi, Karnataka 590006
                       </p>
                     </div>
                   </div>
@@ -81,7 +80,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="font-bold text-lg mb-1">PHONE</h3>
-                      <p className="text-[var(--gym-grey)]">(555) 123-4567</p>
+                      <p className="text-[var(--gym-grey)]">8722584343</p>
                       <p className="text-sm text-[var(--gym-grey)]">Mon-Fri: 6am - 10pm</p>
                     </div>
                   </div>
@@ -152,7 +151,7 @@ export default function ContactPage() {
                     <Input 
                       id="phone"
                       type="tel"
-                      placeholder="(555) 123-4567"
+                      placeholder="8722584343"
                       value={formData.phone}
                       onChange={(e) => setFormData({...formData, phone: e.target.value})}
                       className="mt-2 h-12"
@@ -185,7 +184,7 @@ export default function ContactPage() {
       {/* Google Map */}
       <section className="h-[500px] w-full">
         <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.9476519598093!2d-73.99185368459395!3d40.74117897932838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+          src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3827.5437822!2d74.48949!3d15.837185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTXCsDUwJzEzLjkiTiA3NMKwMjknMzAuMCJF!5e0!3m2!1sen!2sin!4v1234567890"
           width="100%"
           height="100%"
           style={{ border: 0 }}

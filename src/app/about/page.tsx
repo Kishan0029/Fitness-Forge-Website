@@ -91,7 +91,7 @@ export default function AboutPage() {
               <div className="bg-[var(--gym-red)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Target className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold mb-3">DISCIPLINE</h3>
+              <h3 className="text-2xl font-bold mb-3 text-white">DISCIPLINE</h3>
               <p className="text-[var(--gym-grey)]">
                 Consistency and dedication are the keys to lasting success
               </p>
@@ -100,7 +100,7 @@ export default function AboutPage() {
               <div className="bg-[var(--gym-red)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Heart className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold mb-3">PASSION</h3>
+              <h3 className="text-2xl font-bold mb-3 text-white">PASSION</h3>
               <p className="text-[var(--gym-grey)]">
                 We live and breathe fitness, and it shows in everything we do
               </p>
@@ -109,7 +109,7 @@ export default function AboutPage() {
               <div className="bg-[var(--gym-red)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Users className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold mb-3">COMMUNITY</h3>
+              <h3 className="text-2xl font-bold mb-3 text-white">COMMUNITY</h3>
               <p className="text-[var(--gym-grey)]">
                 Together we're stronger, supporting each other every step
               </p>
@@ -118,7 +118,7 @@ export default function AboutPage() {
               <div className="bg-[var(--gym-red)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <TrendingUp className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold mb-3">EXCELLENCE</h3>
+              <h3 className="text-2xl font-bold mb-3 text-white">EXCELLENCE</h3>
               <p className="text-[var(--gym-grey)]">
                 We strive for excellence in training, service, and results
               </p>

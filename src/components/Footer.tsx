@@ -32,13 +32,13 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/programs" className="text-[var(--gym-grey)] hover:text-white transition-colors">
-                  Programs
+                <Link href="/membership" className="text-[var(--gym-grey)] hover:text-white transition-colors">
+                  Membership
                 </Link>
               </li>
               <li>
-                <Link href="/membership" className="text-[var(--gym-grey)] hover:text-white transition-colors">
-                  Membership
+                <Link href="/gallery" className="text-[var(--gym-grey)] hover:text-white transition-colors">
+                  Gallery
                 </Link>
               </li>
               <li>
@@ -56,12 +56,12 @@ export default function Footer() {
               <li className="flex items-start gap-2">
                 <MapPin className="w-5 h-5 text-[var(--gym-red)] flex-shrink-0 mt-0.5" />
                 <span className="text-[var(--gym-grey)] text-sm">
-                  123 Strength Street, Fitness District, NY 10001
+                  Dwarka Nagar, Godse Nagar, Belagavi, Karnataka 590006
                 </span>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-5 h-5 text-[var(--gym-red)]" />
-                <span className="text-[var(--gym-grey)] text-sm">(555) 123-4567</span>
+                <span className="text-[var(--gym-grey)] text-sm">8722584343</span>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-5 h-5 text-[var(--gym-red)]" />

@@ -6,58 +6,89 @@ import { Star, Quote } from "lucide-react";
 export default function TestimonialsPage() {
   const testimonials = [
     {
-      name: "Michael Chen",
-      age: 32,
-      program: "Strength Training",
-      image: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=400&q=80",
-      quote: "I've been training at Fitness Forge for 2 years now and the results speak for themselves. Lost 40 lbs, gained incredible strength, and found a community that keeps me motivated every single day.",
-      rating: 5,
-      achievement: "Lost 40 lbs, Gained 15 lbs Muscle"
+      name: "Aditya Kulkarni",
+      quote: "Great gym and experience, a bit expensive in general but they do offer a lot. Gym is spacious with multiple machines and equipment. I haven't found a similar spacious gym like this in Belgaum. Staff are friendly and helpful, overall a great experience.",
+      rating: 5
     },
     {
-      name: "Sarah Martinez",
-      age: 28,
-      program: "CrossFit",
-      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80",
-      quote: "The trainers here are absolutely phenomenal. They pushed me beyond what I thought was possible. I'm now competing in CrossFit competitions and loving every minute of it!",
-      rating: 5,
-      achievement: "From Beginner to Competitor"
+      name: "Sanskruti Samant",
+      quote: "Clean gym with good staff, well equipped and continuous fresh air ventilation. Preferable for Tilakwadi residents. It's just ₹1000–₹1500 more compared to other gym prices but worth it.",
+      rating: 5
     },
     {
-      name: "David Thompson",
-      age: 45,
-      program: "Personal Training",
-      image: "https://images.unsplash.com/photo-1566753323558-f4e0952af115?w=400&q=80",
-      quote: "At 45, I thought my best days were behind me. Fitness Forge proved me wrong. My personal trainer created a program that worked around my old injuries and I'm now in the best shape of my life.",
-      rating: 5,
-      achievement: "Best Shape at 45"
+      name: "Craig Saunders",
+      quote: "I have got to say that Fitness Forge is above the sun, moon and stars. All the equipment that you see on international bodybuilding videos is found there. It is very hygienic and meticulously cleaned on a regular basis. Every single trainer is excellent.",
+      rating: 5
     },
     {
-      name: "Jessica Lee",
-      age: 35,
-      program: "Zumba & Nutrition",
-      image: "https://images.unsplash.com/photo-1594381898411-846e7d193883?w=400&q=80",
-      quote: "The combination of Zumba classes and nutrition coaching changed my life. I lost 50 lbs while having fun! The community here is so supportive and encouraging.",
-      rating: 5,
-      achievement: "Lost 50 lbs in 8 Months"
+      name: "Vignesh S Waran",
+      quote: "One of the best gyms in Belgaum. Trainers are exceptional, I have had a very good experience. I definitely recommend them to my friends and family.",
+      rating: 5
     },
     {
-      name: "Marcus Johnson",
-      age: 27,
-      program: "Strength Training",
-      image: "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=400&q=80",
-      quote: "Coming from a college athlete background, I needed a gym that could match my intensity. Fitness Forge exceeded all expectations. The equipment, the trainers, the atmosphere—everything is top tier.",
-      rating: 5,
-      achievement: "Deadlift PR: 500 lbs"
+      name: "Nikhil Morey",
+      quote: "Only problem is its expensiveness ... rest all there are no complaints such. One of best equipped gyms, knowledgeable trainers ... worth the money.",
+      rating: 5
     },
     {
-      name: "Emily Rodriguez",
-      age: 29,
-      program: "Personal Training",
-      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&q=80",
-      quote: "I was intimidated by gyms before joining Fitness Forge. The staff made me feel welcome from day one. Now I'm confident, strong, and actually look forward to my workouts!",
-      rating: 5,
-      achievement: "From Intimidated to Confident"
+      name: "Pankaj Gawade",
+      quote: "Best gym ever experienced… good training guidance also.",
+      rating: 5
+    },
+    {
+      name: "Tejas Mirji",
+      quote: "Unlike other gyms in the city, which are in the city center, this gym has parking facility and is surrounded by open landscape all around.",
+      rating: 5
+    },
+    {
+      name: "Rohit Pednekar",
+      quote: "Well the only gym in town which is close to nature and has a swimming pool. This gym has more equipment than any other gym in the city.",
+      rating: 5
+    },
+    {
+      name: "Prasad Undale",
+      quote: "The best and most heavily, well-equipped gym in Belgaum currently.",
+      rating: 5
+    },
+    {
+      name: "Rohan Sunthankar",
+      quote: "A very clean place, well maintained gym, trainers are very nice and cooperative.",
+      rating: 5
+    },
+    {
+      name: "Audy B",
+      quote: "Excellent gym with CrossFit and Yoga facilities. A must visit for fitness lovers.",
+      rating: 5
+    },
+    {
+      name: "H RJ",
+      quote: "Well maintained. Knowledgeable and helpful trainers. Spacious. Bit expensive.",
+      rating: 5
+    },
+    {
+      name: "Rakesh Doshi",
+      quote: "Great place and great environment for workout.",
+      rating: 5
+    },
+    {
+      name: "SOUL_NITROXX GAMING",
+      quote: "Good gym.",
+      rating: 5
+    },
+    {
+      name: "Milind K",
+      quote: "Good place for workout. Good ambiance.",
+      rating: 5
+    },
+    {
+      name: "Aarti Parmar",
+      quote: "Very nice, awesome.",
+      rating: 5
+    },
+    {
+      name: "Parshuram Gore",
+      quote: "Awesome.",
+      rating: 5
     }
   ];
 
@@ -125,20 +156,8 @@ export default function TestimonialsPage() {
                 <p className="text-[var(--gym-grey)] mb-6 italic">
                   "{testimonial.quote}"
                 </p>
-                <div className="flex items-center gap-4 mb-4">
-                  <img 
-                    src={testimonial.image} 
-                    alt={testimonial.name}
-                    className="w-16 h-16 rounded-full object-cover"
-                  />
-                  <div>
-                    <h3 className="font-bold text-lg">{testimonial.name}</h3>
-                    <p className="text-sm text-[var(--gym-grey)]">{testimonial.age} years old</p>
-                  </div>
-                </div>
                 <div className="border-t border-[var(--gym-grey)]/20 pt-4">
-                  <p className="text-sm text-[var(--gym-grey)] mb-1">Program: <span className="font-semibold text-black">{testimonial.program}</span></p>
-                  <p className="text-sm font-bold text-[var(--gym-red)]">{testimonial.achievement}</p>
+                  <h3 className="font-bold text-lg">{testimonial.name}</h3>
                 </div>
               </Card>
             ))}

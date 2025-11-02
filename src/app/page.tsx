@@ -49,43 +49,43 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold text-black mb-4">WHY CHOOSE FITNESS FORGE?</h2>
-            <p className="text-xl text-[var(--gym-grey)]">We deliver results that matter</p>
+            <p className="text-xl text-[var(--gym-grey)]">Belgaum's premier fitness destination</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl">
               <div className="bg-[var(--gym-red)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Dumbbell className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold mb-3">EXPERT TRAINERS</h3>
+              <h3 className="text-2xl font-bold mb-3">WORLD-CLASS EQUIPMENT</h3>
               <p className="text-[var(--gym-grey)]">
-                Certified professionals dedicated to your success
+                All equipment from international bodybuilding videos, most spacious gym in Belgaum
               </p>
             </Card>
             <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl">
               <div className="bg-[var(--gym-red)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Users className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold mb-3">COMMUNITY</h3>
+              <h3 className="text-2xl font-bold mb-3">EXPERT TRAINERS</h3>
               <p className="text-[var(--gym-grey)]">
-                Join a supportive family that pushes you forward
+                Exceptional and knowledgeable trainers dedicated to your success
               </p>
             </Card>
             <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl">
               <div className="bg-[var(--gym-red)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Award className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold mb-3">TOP EQUIPMENT</h3>
+              <h3 className="text-2xl font-bold mb-3">PRISTINE FACILITIES</h3>
               <p className="text-[var(--gym-grey)]">
-                State-of-the-art facilities and modern equipment
+                Meticulously cleaned, well-maintained, with continuous fresh air ventilation
               </p>
             </Card>
             <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl">
               <div className="bg-[var(--gym-red)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <TrendingUp className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold mb-3">PROVEN RESULTS</h3>
+              <h3 className="text-2xl font-bold mb-3">NATURE & POOL</h3>
               <p className="text-[var(--gym-grey)]">
-                Track your progress and achieve your goals
+                Only gym in town close to nature with swimming pool and parking facility
               </p>
             </Card>
           </div>
@@ -109,11 +109,6 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent flex flex-col justify-end p-6">
                 <h3 className="text-3xl font-bold mb-2">STRENGTH TRAINING</h3>
                 <p className="text-[var(--gym-grey)] mb-4">Build muscle and increase power</p>
-                <Link href="/programs">
-                  <Button variant="outline" className="border-[var(--gym-red)] text-[var(--gym-red)] hover:bg-[var(--gym-red)] hover:text-white w-fit">
-                    LEARN MORE <ArrowRight className="ml-2 w-4 h-4" />
-                  </Button>
-                </Link>
               </div>
             </div>
             <div className="relative overflow-hidden rounded-xl group cursor-pointer">
@@ -125,11 +120,6 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent flex flex-col justify-end p-6">
                 <h3 className="text-3xl font-bold mb-2">CROSSFIT</h3>
                 <p className="text-[var(--gym-grey)] mb-4">High-intensity functional fitness</p>
-                <Link href="/programs">
-                  <Button variant="outline" className="border-[var(--gym-red)] text-[var(--gym-red)] hover:bg-[var(--gym-red)] hover:text-white w-fit">
-                    LEARN MORE <ArrowRight className="ml-2 w-4 h-4" />
-                  </Button>
-                </Link>
               </div>
             </div>
             <div className="relative overflow-hidden rounded-xl group cursor-pointer">
@@ -139,13 +129,8 @@ export default function Home() {
                 className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent flex flex-col justify-end p-6">
-                <h3 className="text-3xl font-bold mb-2">PERSONAL TRAINING</h3>
-                <p className="text-[var(--gym-grey)] mb-4">One-on-one customized coaching</p>
-                <Link href="/programs">
-                  <Button variant="outline" className="border-[var(--gym-red)] text-[var(--gym-red)] hover:bg-[var(--gym-red)] hover:text-white w-fit">
-                    LEARN MORE <ArrowRight className="ml-2 w-4 h-4" />
-                  </Button>
-                </Link>
+                <h3 className="text-3xl font-bold mb-2">YOGA</h3>
+                <p className="text-[var(--gym-grey)] mb-4">Mind and body wellness</p>
               </div>
             </div>
           </div>
