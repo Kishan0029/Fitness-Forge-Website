@@ -1,7 +1,10 @@
+"use client";
+
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
 import { Star, Quote } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function TestimonialsPage() {
   const testimonials = [
@@ -92,6 +95,28 @@ export default function TestimonialsPage() {
     }
   ];
 
+  const staggerContainer = {
+    animate: {
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const cardVariant = {
+    initial: { opacity: 0, y: 50 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true },
+    transition: { duration: 0.5 }
+  };
+
+  const statsVariant = {
+    initial: { opacity: 0, scale: 0 },
+    whileInView: { opacity: 1, scale: 1 },
+    viewport: { once: true },
+    transition: { duration: 0.6, type: "spring" }
+  };
+
   return (
     <>
       <Navigation />
@@ -104,79 +129,153 @@ export default function TestimonialsPage() {
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 pt-20">
-          <h1 className="text-6xl md:text-7xl font-bold text-white mb-4 tracking-wider">
+          <motion.h1 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-6xl md:text-7xl font-bold text-white mb-4 tracking-wider"
+          >
             SUCCESS STORIES
-          </h1>
-          <p className="text-xl text-[var(--gym-red)] font-bold">
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-xl text-[var(--gym-red)] font-bold"
+          >
             Real People. Real Results.
-          </p>
+          </motion.p>
         </div>
       </section>
 
       {/* Stats Section */}
       <section className="py-16 bg-black text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
-            <div>
+          <motion.div 
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center"
+          >
+            <motion.div variants={statsVariant}>
               <div className="text-5xl font-bold text-[var(--gym-red)] mb-2">1000+</div>
               <div className="text-lg text-[var(--gym-grey)]">Transformations</div>
-            </div>
-            <div>
+            </motion.div>
+            <motion.div variants={statsVariant}>
               <div className="text-5xl font-bold text-[var(--gym-red)] mb-2">50K+</div>
               <div className="text-lg text-[var(--gym-grey)]">Pounds Lost</div>
-            </div>
-            <div>
+            </motion.div>
+            <motion.div variants={statsVariant}>
               <div className="text-5xl font-bold text-[var(--gym-red)] mb-2">98%</div>
               <div className="text-lg text-[var(--gym-grey)]">Satisfaction Rate</div>
-            </div>
-            <div>
+            </motion.div>
+            <motion.div variants={statsVariant}>
               <div className="text-5xl font-bold text-[var(--gym-red)] mb-2">4.9/5</div>
               <div className="text-lg text-[var(--gym-grey)]">Average Rating</div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* Testimonials Grid */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
             <h2 className="text-5xl font-bold text-black mb-4">HEAR FROM OUR MEMBERS</h2>
             <p className="text-xl text-[var(--gym-grey)]">Their journeys, their victories</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          </motion.div>
+          <motion.div 
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
             {testimonials.map((testimonial) => (
-              <Card key={testimonial.name} className="p-8 border-2 hover:border-[var(--gym-red)] hover:shadow-xl transition-all">
-                <Quote className="w-12 h-12 text-[var(--gym-red)]/20 mb-4" />
-                <div className="flex gap-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-[var(--gym-red)] fill-current" />
-                  ))}
-                </div>
-                <p className="text-[var(--gym-grey)] mb-6 italic">
-                  "{testimonial.quote}"
-                </p>
-                <div className="border-t border-[var(--gym-grey)]/20 pt-4">
-                  <h3 className="font-bold text-lg">{testimonial.name}</h3>
-                </div>
-              </Card>
+              <motion.div
+                key={testimonial.name}
+                variants={cardVariant}
+                whileHover={{ y: -10, scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Card className="p-8 border-2 hover:border-[var(--gym-red)] hover:shadow-xl transition-all h-full">
+                  <motion.div
+                    initial={{ rotate: -180, opacity: 0 }}
+                    whileInView={{ rotate: 0, opacity: 0.2 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    <Quote className="w-12 h-12 text-[var(--gym-red)] mb-4" />
+                  </motion.div>
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <motion.div
+                        key={i}
+                        initial={{ opacity: 0, scale: 0 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.3, delay: i * 0.1 }}
+                      >
+                        <Star className="w-5 h-5 text-[var(--gym-red)] fill-current" />
+                      </motion.div>
+                    ))}
+                  </div>
+                  <p className="text-[var(--gym-grey)] mb-6 italic">
+                    "{testimonial.quote}"
+                  </p>
+                  <div className="border-t border-[var(--gym-grey)]/20 pt-4">
+                    <h3 className="font-bold text-lg">{testimonial.name}</h3>
+                  </div>
+                </Card>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="py-20 bg-[var(--gym-red)] text-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-5xl font-bold mb-6">READY TO WRITE YOUR SUCCESS STORY?</h2>
-          <p className="text-xl mb-8 opacity-90">
+          <motion.h2 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-5xl font-bold mb-6"
+          >
+            READY TO WRITE YOUR SUCCESS STORY?
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-xl mb-8 opacity-90"
+          >
             Join our community and become our next transformation success story
-          </p>
-          <a href="/join">
-            <button className="bg-black hover:bg-black/90 text-white font-bold px-8 py-6 text-lg rounded-lg transition-all">
+          </motion.p>
+          <motion.a 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            href="/join"
+          >
+            <motion.button 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-black hover:bg-black/90 text-white font-bold px-8 py-6 text-lg rounded-lg transition-all"
+            >
               START YOUR JOURNEY
-            </button>
-          </a>
+            </motion.button>
+          </motion.a>
         </div>
       </section>
 
