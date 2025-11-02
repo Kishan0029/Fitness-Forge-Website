@@ -9,27 +9,6 @@ import { Card } from "@/components/ui/card";
 import { motion } from "framer-motion";
 
 export default function Home() {
-  const fadeInUp = {
-    initial: { opacity: 0, y: 60 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 }
-  };
-
-  const staggerContainer = {
-    animate: {
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const scaleIn = {
-    initial: { opacity: 0, scale: 0.8 },
-    whileInView: { opacity: 1, scale: 1 },
-    viewport: { once: true },
-    transition: { duration: 0.5 }
-  };
-
   return (
     <>
       <Navigation />
@@ -99,14 +78,13 @@ export default function Home() {
             <h2 className="text-5xl font-bold text-black mb-4">WHY CHOOSE FITNESS FORGE?</h2>
             <p className="text-xl text-[var(--gym-grey)]">Belgaum's premier fitness destination</p>
           </motion.div>
-          <motion.div 
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-          >
-            <motion.div variants={scaleIn}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
               <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl">
                 <motion.div 
                   whileHover={{ rotate: 360 }}
@@ -121,7 +99,12 @@ export default function Home() {
                 </p>
               </Card>
             </motion.div>
-            <motion.div variants={scaleIn}>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
               <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl">
                 <motion.div 
                   whileHover={{ rotate: 360 }}
@@ -136,7 +119,12 @@ export default function Home() {
                 </p>
               </Card>
             </motion.div>
-            <motion.div variants={scaleIn}>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
               <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl">
                 <motion.div 
                   whileHover={{ rotate: 360 }}
@@ -151,7 +139,12 @@ export default function Home() {
                 </p>
               </Card>
             </motion.div>
-            <motion.div variants={scaleIn}>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
               <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl">
                 <motion.div 
                   whileHover={{ rotate: 360 }}
@@ -166,7 +159,7 @@ export default function Home() {
                 </p>
               </Card>
             </motion.div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -183,15 +176,12 @@ export default function Home() {
             <h2 className="text-5xl font-bold mb-4">OUR PROGRAMS</h2>
             <p className="text-xl text-[var(--gym-grey)]">Find the perfect training program for you</p>
           </motion.div>
-          <motion.div 
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
-          >
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <motion.div 
-              variants={scaleIn}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
               whileHover={{ scale: 1.05 }}
               className="relative overflow-hidden rounded-xl group cursor-pointer"
             >
@@ -206,7 +196,10 @@ export default function Home() {
               </div>
             </motion.div>
             <motion.div 
-              variants={scaleIn}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
               whileHover={{ scale: 1.05 }}
               className="relative overflow-hidden rounded-xl group cursor-pointer"
             >
@@ -221,7 +214,10 @@ export default function Home() {
               </div>
             </motion.div>
             <motion.div 
-              variants={scaleIn}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
               whileHover={{ scale: 1.05 }}
               className="relative overflow-hidden rounded-xl group cursor-pointer"
             >
@@ -235,7 +231,7 @@ export default function Home() {
                 <p className="text-[var(--gym-grey)] mb-4">Mind and body wellness</p>
               </div>
             </motion.div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -284,62 +280,52 @@ export default function Home() {
       {/* Stats Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center"
-          >
-            <motion.div variants={scaleIn}>
-              <motion.div 
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, type: "spring" }}
-                className="text-5xl font-bold text-[var(--gym-red)] mb-2"
-              >
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+            <motion.div
+              initial={{ opacity: 0, scale: 0 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, type: "spring" }}
+            >
+              <div className="text-5xl font-bold text-[var(--gym-red)] mb-2">
                 5000+
-              </motion.div>
+              </div>
               <div className="text-xl text-[var(--gym-grey)]">Active Members</div>
             </motion.div>
-            <motion.div variants={scaleIn}>
-              <motion.div 
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.1, type: "spring" }}
-                className="text-5xl font-bold text-[var(--gym-red)] mb-2"
-              >
+            <motion.div
+              initial={{ opacity: 0, scale: 0 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1, type: "spring" }}
+            >
+              <div className="text-5xl font-bold text-[var(--gym-red)] mb-2">
                 50+
-              </motion.div>
+              </div>
               <div className="text-xl text-[var(--gym-grey)]">Expert Trainers</div>
             </motion.div>
-            <motion.div variants={scaleIn}>
-              <motion.div 
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2, type: "spring" }}
-                className="text-5xl font-bold text-[var(--gym-red)] mb-2"
-              >
+            <motion.div
+              initial={{ opacity: 0, scale: 0 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2, type: "spring" }}
+            >
+              <div className="text-5xl font-bold text-[var(--gym-red)] mb-2">
                 10+
-              </motion.div>
+              </div>
               <div className="text-xl text-[var(--gym-grey)]">Years Experience</div>
             </motion.div>
-            <motion.div variants={scaleIn}>
-              <motion.div 
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3, type: "spring" }}
-                className="text-5xl font-bold text-[var(--gym-red)] mb-2"
-              >
+            <motion.div
+              initial={{ opacity: 0, scale: 0 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3, type: "spring" }}
+            >
+              <div className="text-5xl font-bold text-[var(--gym-red)] mb-2">
                 24/7
-              </motion.div>
+              </div>
               <div className="text-xl text-[var(--gym-grey)]">Access Available</div>
             </motion.div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
