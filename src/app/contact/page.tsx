@@ -9,6 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -25,6 +26,21 @@ export default function ContactPage() {
     setFormData({ name: "", email: "", phone: "", message: "" });
   };
 
+  const staggerContainer = {
+    animate: {
+      transition: {
+        staggerChildren: 0.15
+      }
+    }
+  };
+
+  const cardVariant = {
+    initial: { opacity: 0, y: 30 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true },
+    transition: { duration: 0.5 }
+  };
+
   return (
     <>
       <Navigation />
@@ -37,12 +53,22 @@ export default function ContactPage() {
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 pt-20">
-          <h1 className="text-6xl md:text-7xl font-bold text-white mb-4 tracking-wider">
+          <motion.h1 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-6xl md:text-7xl font-bold text-white mb-4 tracking-wider"
+          >
             CONTACT US
-          </h1>
-          <p className="text-xl text-[var(--gym-red)] font-bold">
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-xl text-[var(--gym-red)] font-bold"
+          >
             We're Here to Help You Start Your Journey
-          </p>
+          </motion.p>
         </div>
       </section>
 
@@ -52,77 +78,127 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Information */}
             <div>
-              <h2 className="text-4xl font-bold text-black mb-8">GET IN TOUCH</h2>
-              <p className="text-lg text-[var(--gym-grey)] mb-8">
+              <motion.h2 
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="text-4xl font-bold text-black mb-8"
+              >
+                GET IN TOUCH
+              </motion.h2>
+              <motion.p 
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="text-lg text-[var(--gym-grey)] mb-8"
+              >
                 Have questions? Want to book a free trial? We'd love to hear from you. Reach out to us using any of the methods below.
-              </p>
+              </motion.p>
               
-              <div className="space-y-6">
-                <Card className="p-6 border-2 hover:border-[var(--gym-red)] transition-all">
-                  <div className="flex items-start gap-4">
-                    <div className="bg-[var(--gym-red)] p-3 rounded-lg">
-                      <MapPin className="w-6 h-6 text-white" />
+              <motion.div 
+                variants={staggerContainer}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
+                className="space-y-6"
+              >
+                <motion.div variants={cardVariant}>
+                  <Card className="p-6 border-2 hover:border-[var(--gym-red)] transition-all">
+                    <div className="flex items-start gap-4">
+                      <motion.div 
+                        whileHover={{ scale: 1.1, rotate: 5 }}
+                        className="bg-[var(--gym-red)] p-3 rounded-lg"
+                      >
+                        <MapPin className="w-6 h-6 text-white" />
+                      </motion.div>
+                      <div>
+                        <h3 className="font-bold text-lg mb-1">ADDRESS</h3>
+                        <p className="text-[var(--gym-grey)]">
+                          Dwarka Nagar, Godse Nagar<br />
+                          Belagavi, Karnataka 590006
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="font-bold text-lg mb-1">ADDRESS</h3>
-                      <p className="text-[var(--gym-grey)]">
-                        Dwarka Nagar, Godse Nagar<br />
-                        Belagavi, Karnataka 590006
-                      </p>
-                    </div>
-                  </div>
-                </Card>
+                  </Card>
+                </motion.div>
 
-                <Card className="p-6 border-2 hover:border-[var(--gym-red)] transition-all">
-                  <div className="flex items-start gap-4">
-                    <div className="bg-[var(--gym-red)] p-3 rounded-lg">
-                      <Phone className="w-6 h-6 text-white" />
+                <motion.div variants={cardVariant}>
+                  <Card className="p-6 border-2 hover:border-[var(--gym-red)] transition-all">
+                    <div className="flex items-start gap-4">
+                      <motion.div 
+                        whileHover={{ scale: 1.1, rotate: 5 }}
+                        className="bg-[var(--gym-red)] p-3 rounded-lg"
+                      >
+                        <Phone className="w-6 h-6 text-white" />
+                      </motion.div>
+                      <div>
+                        <h3 className="font-bold text-lg mb-1">PHONE</h3>
+                        <p className="text-[var(--gym-grey)]">8722584343</p>
+                        <p className="text-sm text-[var(--gym-grey)]">Mon-Fri: 6am - 10pm</p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="font-bold text-lg mb-1">PHONE</h3>
-                      <p className="text-[var(--gym-grey)]">8722584343</p>
-                      <p className="text-sm text-[var(--gym-grey)]">Mon-Fri: 6am - 10pm</p>
-                    </div>
-                  </div>
-                </Card>
+                  </Card>
+                </motion.div>
 
-                <Card className="p-6 border-2 hover:border-[var(--gym-red)] transition-all">
-                  <div className="flex items-start gap-4">
-                    <div className="bg-[var(--gym-red)] p-3 rounded-lg">
-                      <Mail className="w-6 h-6 text-white" />
+                <motion.div variants={cardVariant}>
+                  <Card className="p-6 border-2 hover:border-[var(--gym-red)] transition-all">
+                    <div className="flex items-start gap-4">
+                      <motion.div 
+                        whileHover={{ scale: 1.1, rotate: 5 }}
+                        className="bg-[var(--gym-red)] p-3 rounded-lg"
+                      >
+                        <Mail className="w-6 h-6 text-white" />
+                      </motion.div>
+                      <div>
+                        <h3 className="font-bold text-lg mb-1">EMAIL</h3>
+                        <p className="text-[var(--gym-grey)]">info@fitnessforge.com</p>
+                        <p className="text-sm text-[var(--gym-grey)]">We'll respond within 24 hours</p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="font-bold text-lg mb-1">EMAIL</h3>
-                      <p className="text-[var(--gym-grey)]">info@fitnessforge.com</p>
-                      <p className="text-sm text-[var(--gym-grey)]">We'll respond within 24 hours</p>
-                    </div>
-                  </div>
-                </Card>
+                  </Card>
+                </motion.div>
 
-                <Card className="p-6 border-2 hover:border-[var(--gym-red)] transition-all">
-                  <div className="flex items-start gap-4">
-                    <div className="bg-[var(--gym-red)] p-3 rounded-lg">
-                      <Clock className="w-6 h-6 text-white" />
+                <motion.div variants={cardVariant}>
+                  <Card className="p-6 border-2 hover:border-[var(--gym-red)] transition-all">
+                    <div className="flex items-start gap-4">
+                      <motion.div 
+                        whileHover={{ scale: 1.1, rotate: 5 }}
+                        className="bg-[var(--gym-red)] p-3 rounded-lg"
+                      >
+                        <Clock className="w-6 h-6 text-white" />
+                      </motion.div>
+                      <div>
+                        <h3 className="font-bold text-lg mb-1">GYM HOURS</h3>
+                        <p className="text-[var(--gym-grey)]">
+                          Mon - Fri: 5:00 AM - 11:00 PM<br />
+                          Saturday: 6:00 AM - 10:00 PM<br />
+                          Sunday: 7:00 AM - 9:00 PM
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="font-bold text-lg mb-1">GYM HOURS</h3>
-                      <p className="text-[var(--gym-grey)]">
-                        Mon - Fri: 5:00 AM - 11:00 PM<br />
-                        Saturday: 6:00 AM - 10:00 PM<br />
-                        Sunday: 7:00 AM - 9:00 PM
-                      </p>
-                    </div>
-                  </div>
-                </Card>
-              </div>
+                  </Card>
+                </motion.div>
+              </motion.div>
             </div>
 
             {/* Contact Form */}
-            <div>
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
               <Card className="p-8 border-2">
                 <h2 className="text-3xl font-bold text-black mb-6">SEND US A MESSAGE</h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.1 }}
+                  >
                     <Label htmlFor="name" className="text-base font-bold">NAME *</Label>
                     <Input 
                       id="name"
@@ -133,8 +209,13 @@ export default function ContactPage() {
                       required
                       className="mt-2 h-12"
                     />
-                  </div>
-                  <div>
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                  >
                     <Label htmlFor="email" className="text-base font-bold">EMAIL *</Label>
                     <Input 
                       id="email"
@@ -145,8 +226,13 @@ export default function ContactPage() {
                       required
                       className="mt-2 h-12"
                     />
-                  </div>
-                  <div>
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                  >
                     <Label htmlFor="phone" className="text-base font-bold">PHONE</Label>
                     <Input 
                       id="phone"
@@ -156,8 +242,13 @@ export default function ContactPage() {
                       onChange={(e) => setFormData({...formData, phone: e.target.value})}
                       className="mt-2 h-12"
                     />
-                  </div>
-                  <div>
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.4 }}
+                  >
                     <Label htmlFor="message" className="text-base font-bold">MESSAGE *</Label>
                     <Textarea 
                       id="message"
@@ -167,22 +258,35 @@ export default function ContactPage() {
                       required
                       className="mt-2 min-h-[150px]"
                     />
-                  </div>
-                  <Button 
-                    type="submit"
-                    className="w-full bg-[var(--gym-red)] hover:bg-[var(--gym-red)]/90 text-white font-bold py-6 text-lg rounded-lg"
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.5 }}
                   >
-                    SEND MESSAGE
-                  </Button>
+                    <Button 
+                      type="submit"
+                      className="w-full bg-[var(--gym-red)] hover:bg-[var(--gym-red)]/90 text-white font-bold py-6 text-lg rounded-lg hover:scale-105 transition-all"
+                    >
+                      SEND MESSAGE
+                    </Button>
+                  </motion.div>
                 </form>
               </Card>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* Google Map */}
-      <section className="h-[500px] w-full">
+      <motion.section 
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="h-[500px] w-full"
+      >
         <iframe 
           src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3827.5437822!2d74.48949!3d15.837185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTXCsDUwJzEzLjkiTiA3NMKwMjknMzAuMCJF!5e0!3m2!1sen!2sin!4v1234567890"
           width="100%"
@@ -193,7 +297,7 @@ export default function ContactPage() {
           referrerPolicy="no-referrer-when-downgrade"
           title="Fitness Forge Location"
         />
-      </section>
+      </motion.section>
 
       <Footer />
     </>

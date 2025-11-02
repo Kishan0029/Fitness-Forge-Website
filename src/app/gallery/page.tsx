@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function GalleryPage() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -36,6 +37,21 @@ export default function GalleryPage() {
     "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=800&q=80"
   ];
 
+  const staggerContainer = {
+    animate: {
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const imageVariant = {
+    initial: { opacity: 0, scale: 0.8 },
+    whileInView: { opacity: 1, scale: 1 },
+    viewport: { once: true },
+    transition: { duration: 0.5 }
+  };
+
   return (
     <>
       <Navigation />
@@ -48,12 +64,22 @@ export default function GalleryPage() {
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 pt-20">
-          <h1 className="text-6xl md:text-7xl font-bold text-white mb-4 tracking-wider">
+          <motion.h1 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-6xl md:text-7xl font-bold text-white mb-4 tracking-wider"
+          >
             GALLERY
-          </h1>
-          <p className="text-xl text-[var(--gym-red)] font-bold">
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-xl text-[var(--gym-red)] font-bold"
+          >
             See Where Champions Are Made
-          </p>
+          </motion.p>
         </div>
       </section>
 
@@ -61,23 +87,38 @@ export default function GalleryPage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Tabs defaultValue="gym" className="w-full">
-            <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-3 mb-12 h-14">
-              <TabsTrigger value="gym" className="text-lg font-bold data-[state=active]:bg-[var(--gym-red)] data-[state=active]:text-white">
-                GYM INTERIOR
-              </TabsTrigger>
-              <TabsTrigger value="training" className="text-lg font-bold data-[state=active]:bg-[var(--gym-red)] data-[state=active]:text-white">
-                TRAINING
-              </TabsTrigger>
-              <TabsTrigger value="transformations" className="text-lg font-bold data-[state=active]:bg-[var(--gym-red)] data-[state=active]:text-white">
-                TRANSFORMATIONS
-              </TabsTrigger>
-            </TabsList>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-3 mb-12 h-14">
+                <TabsTrigger value="gym" className="text-lg font-bold data-[state=active]:bg-[var(--gym-red)] data-[state=active]:text-white">
+                  GYM INTERIOR
+                </TabsTrigger>
+                <TabsTrigger value="training" className="text-lg font-bold data-[state=active]:bg-[var(--gym-red)] data-[state=active]:text-white">
+                  TRAINING
+                </TabsTrigger>
+                <TabsTrigger value="transformations" className="text-lg font-bold data-[state=active]:bg-[var(--gym-red)] data-[state=active]:text-white">
+                  TRANSFORMATIONS
+                </TabsTrigger>
+              </TabsList>
+            </motion.div>
 
             <TabsContent value="gym">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <motion.div 
+                variants={staggerContainer}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+              >
                 {gymInterior.map((image, index) => (
-                  <div 
+                  <motion.div 
                     key={index}
+                    variants={imageVariant}
+                    whileHover={{ scale: 1.05 }}
                     className="relative overflow-hidden rounded-xl cursor-pointer group"
                     onClick={() => setSelectedImage(image)}
                   >
@@ -91,16 +132,24 @@ export default function GalleryPage() {
                         VIEW
                       </span>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </TabsContent>
 
             <TabsContent value="training">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <motion.div 
+                variants={staggerContainer}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+              >
                 {training.map((image, index) => (
-                  <div 
+                  <motion.div 
                     key={index}
+                    variants={imageVariant}
+                    whileHover={{ scale: 1.05 }}
                     className="relative overflow-hidden rounded-xl cursor-pointer group"
                     onClick={() => setSelectedImage(image)}
                   >
@@ -114,16 +163,24 @@ export default function GalleryPage() {
                         VIEW
                       </span>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </TabsContent>
 
             <TabsContent value="transformations">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <motion.div 
+                variants={staggerContainer}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+              >
                 {transformations.map((image, index) => (
-                  <div 
+                  <motion.div 
                     key={index}
+                    variants={imageVariant}
+                    whileHover={{ scale: 1.05 }}
                     className="relative overflow-hidden rounded-xl cursor-pointer group"
                     onClick={() => setSelectedImage(image)}
                   >
@@ -137,35 +194,47 @@ export default function GalleryPage() {
                         VIEW
                       </span>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </TabsContent>
           </Tabs>
         </div>
       </section>
 
       {/* Image Modal */}
-      {selectedImage && (
-        <div 
-          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
-          onClick={() => setSelectedImage(null)}
-        >
-          <div className="relative max-w-5xl w-full">
-            <button 
-              className="absolute -top-12 right-0 text-white text-4xl hover:text-[var(--gym-red)] transition-colors"
-              onClick={() => setSelectedImage(null)}
-            >
-              ×
-            </button>
-            <img 
-              src={selectedImage} 
-              alt="Full size"
-              className="w-full h-auto rounded-xl"
-            />
-          </div>
-        </div>
-      )}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+            onClick={() => setSelectedImage(null)}
+          >
+            <div className="relative max-w-5xl w-full">
+              <motion.button 
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                whileHover={{ scale: 1.2 }}
+                className="absolute -top-12 right-0 text-white text-4xl hover:text-[var(--gym-red)] transition-colors"
+                onClick={() => setSelectedImage(null)}
+              >
+                ×
+              </motion.button>
+              <motion.img 
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.8, opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                src={selectedImage} 
+                alt="Full size"
+                className="w-full h-auto rounded-xl"
+              />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <Footer />
     </>
