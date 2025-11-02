@@ -34,21 +34,6 @@ export default function AboutPage() {
     }
   ];
 
-  const staggerContainer = {
-    animate: {
-      transition: {
-        staggerChildren: 0.15
-      }
-    }
-  };
-
-  const cardVariant = {
-    initial: { opacity: 0, scale: 0.8 },
-    whileInView: { opacity: 1, scale: 1 },
-    viewport: { once: true },
-    transition: { duration: 0.5 }
-  };
-
   return (
     <>
       <Navigation />
@@ -131,14 +116,13 @@ export default function AboutPage() {
             <h2 className="text-5xl font-bold mb-4">OUR VALUES</h2>
             <p className="text-xl text-[var(--gym-grey)]">The principles that drive us forward</p>
           </motion.div>
-          <motion.div 
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-          >
-            <motion.div variants={cardVariant}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
               <Card className="bg-[var(--gym-grey)]/10 border-[var(--gym-grey)]/20 p-8 text-center hover:border-[var(--gym-red)] transition-all">
                 <motion.div 
                   whileHover={{ rotate: 360, scale: 1.1 }}
@@ -153,7 +137,12 @@ export default function AboutPage() {
                 </p>
               </Card>
             </motion.div>
-            <motion.div variants={cardVariant}>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
               <Card className="bg-[var(--gym-grey)]/10 border-[var(--gym-grey)]/20 p-8 text-center hover:border-[var(--gym-red)] transition-all">
                 <motion.div 
                   whileHover={{ rotate: 360, scale: 1.1 }}
@@ -168,7 +157,12 @@ export default function AboutPage() {
                 </p>
               </Card>
             </motion.div>
-            <motion.div variants={cardVariant}>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
               <Card className="bg-[var(--gym-grey)]/10 border-[var(--gym-grey)]/20 p-8 text-center hover:border-[var(--gym-red)] transition-all">
                 <motion.div 
                   whileHover={{ rotate: 360, scale: 1.1 }}
@@ -183,7 +177,12 @@ export default function AboutPage() {
                 </p>
               </Card>
             </motion.div>
-            <motion.div variants={cardVariant}>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
               <Card className="bg-[var(--gym-grey)]/10 border-[var(--gym-grey)]/20 p-8 text-center hover:border-[var(--gym-red)] transition-all">
                 <motion.div 
                   whileHover={{ rotate: 360, scale: 1.1 }}
@@ -198,7 +197,7 @@ export default function AboutPage() {
                 </p>
               </Card>
             </motion.div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -215,19 +214,15 @@ export default function AboutPage() {
             <h2 className="text-5xl font-bold text-black mb-4">MEET OUR TRAINERS</h2>
             <p className="text-xl text-[var(--gym-grey)]">Expert coaches dedicated to your success</p>
           </motion.div>
-          <motion.div 
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-          >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {trainers.map((trainer, index) => (
               <motion.div
                 key={trainer.name}
-                variants={cardVariant}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -10 }}
-                transition={{ duration: 0.3 }}
               >
                 <Card className="overflow-hidden border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl">
                   <motion.img 
@@ -245,7 +240,7 @@ export default function AboutPage() {
                 </Card>
               </motion.div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
