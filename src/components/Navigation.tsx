@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Dumbbell } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -20,6 +21,7 @@ export default function Navigation() {
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
+    { href: "/programs", label: "Programs" },
     { href: "/membership", label: "Membership" },
     { href: "/gallery", label: "Gallery" },
     { href: "/testimonials", label: "Testimonials" },
@@ -37,17 +39,15 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="bg-[var(--gym-red)] p-2 rounded-lg group-hover:scale-110 transition-transform">
-              <Dumbbell className="w-6 h-6 text-white" />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-2xl font-bold text-white tracking-wider">
-                FITNESS FORGE
-              </span>
-              <span className="text-xs text-[var(--gym-grey)] -mt-1">
-                BUILD YOUR LEGACY
-              </span>
+          <Link href="/" className="flex items-center group">
+            <div className="relative w-48 h-16 group-hover:scale-105 transition-transform">
+              <Image
+                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1762113469157.png?width=8000&height=8000&resize=contain"
+                alt="Fitness Forge Logo"
+                fill
+                className="object-contain brightness-0 invert"
+                priority
+              />
             </div>
           </Link>
 
