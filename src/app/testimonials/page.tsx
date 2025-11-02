@@ -95,28 +95,6 @@ export default function TestimonialsPage() {
     }
   ];
 
-  const staggerContainer = {
-    animate: {
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const cardVariant = {
-    initial: { opacity: 0, y: 50 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true },
-    transition: { duration: 0.5 }
-  };
-
-  const statsVariant = {
-    initial: { opacity: 0, scale: 0 },
-    whileInView: { opacity: 1, scale: 1 },
-    viewport: { once: true },
-    transition: { duration: 0.6, type: "spring" }
-  };
-
   return (
     <>
       <Navigation />
@@ -151,30 +129,44 @@ export default function TestimonialsPage() {
       {/* Stats Section */}
       <section className="py-16 bg-black text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center"
-          >
-            <motion.div variants={statsVariant}>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+            <motion.div
+              initial={{ opacity: 0, scale: 0 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, type: "spring" }}
+            >
               <div className="text-5xl font-bold text-[var(--gym-red)] mb-2">1000+</div>
               <div className="text-lg text-[var(--gym-grey)]">Transformations</div>
             </motion.div>
-            <motion.div variants={statsVariant}>
+            <motion.div
+              initial={{ opacity: 0, scale: 0 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1, type: "spring" }}
+            >
               <div className="text-5xl font-bold text-[var(--gym-red)] mb-2">50K+</div>
               <div className="text-lg text-[var(--gym-grey)]">Pounds Lost</div>
             </motion.div>
-            <motion.div variants={statsVariant}>
+            <motion.div
+              initial={{ opacity: 0, scale: 0 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2, type: "spring" }}
+            >
               <div className="text-5xl font-bold text-[var(--gym-red)] mb-2">98%</div>
               <div className="text-lg text-[var(--gym-grey)]">Satisfaction Rate</div>
             </motion.div>
-            <motion.div variants={statsVariant}>
+            <motion.div
+              initial={{ opacity: 0, scale: 0 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3, type: "spring" }}
+            >
               <div className="text-5xl font-bold text-[var(--gym-red)] mb-2">4.9/5</div>
               <div className="text-lg text-[var(--gym-grey)]">Average Rating</div>
             </motion.div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -191,19 +183,15 @@ export default function TestimonialsPage() {
             <h2 className="text-5xl font-bold text-black mb-4">HEAR FROM OUR MEMBERS</h2>
             <p className="text-xl text-[var(--gym-grey)]">Their journeys, their victories</p>
           </motion.div>
-          <motion.div 
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          >
-            {testimonials.map((testimonial) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
               <motion.div
                 key={testimonial.name}
-                variants={cardVariant}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: (index % 6) * 0.1 }}
                 whileHover={{ y: -10, scale: 1.02 }}
-                transition={{ duration: 0.3 }}
               >
                 <Card className="p-8 border-2 hover:border-[var(--gym-red)] hover:shadow-xl transition-all h-full">
                   <motion.div
@@ -236,7 +224,7 @@ export default function TestimonialsPage() {
                 </Card>
               </motion.div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
