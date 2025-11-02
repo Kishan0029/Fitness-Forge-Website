@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Facebook, Instagram, Youtube, Mail, Phone, MapPin, Dumbbell } from "lucide-react";
+import { Facebook, Instagram, Youtube, Mail, Phone, MapPin } from "lucide-react";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -8,9 +9,16 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="bg-[var(--gym-red)] p-2 rounded-lg">
-                <Dumbbell className="w-6 h-6 text-white" />
+            <div className="flex items-center gap-3 mb-4">
+              <div className="bg-[var(--gym-red)] p-3 rounded-lg">
+                <div className="relative w-12 h-12">
+                  <Image
+                    src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1762113469157.png?width=8000&height=8000&resize=contain"
+                    alt="Fitness Forge Logo"
+                    fill
+                    className="object-contain brightness-0 invert"
+                  />
+                </div>
               </div>
               <div className="flex flex-col">
                 <span className="text-xl font-bold tracking-wider">FITNESS FORGE</span>
