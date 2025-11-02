@@ -40,7 +40,7 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center group">
-            <div className="relative w-52 h-14 group-hover:scale-105 transition-transform duration-300">
+            <div className="relative w-60 h-16 group-hover:scale-105 transition-transform duration-300">
               <Image
                 src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1762113469157.png?width=8000&height=8000&resize=contain"
                 alt="Fitness Forge Logo"
