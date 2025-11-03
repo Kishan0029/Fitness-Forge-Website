@@ -41,28 +41,6 @@ export default function JoinPage() {
     });
   };
 
-  const staggerContainer = {
-    animate: {
-      transition: {
-        staggerChildren: 0.15
-      }
-    }
-  };
-
-  const benefitVariant = {
-    initial: { opacity: 0, scale: 0.8 },
-    whileInView: { opacity: 1, scale: 1 },
-    viewport: { once: true },
-    transition: { duration: 0.5 }
-  };
-
-  const stepVariant = {
-    initial: { opacity: 0, y: 30 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true },
-    transition: { duration: 0.5 }
-  };
-
   return (
     <>
       <Navigation />
@@ -95,25 +73,25 @@ export default function JoinPage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-16 bg-black text-white">
+      <section className="py-20 bg-black text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl font-bold text-center mb-12"
+            className="text-4xl md:text-5xl font-bold text-center mb-16"
           >
             WHY JOIN TODAY?
           </motion.h2>
-          <motion.div 
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
-          >
-            <motion.div variants={benefitVariant} className="text-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-center"
+            >
               <motion.div 
                 whileHover={{ rotate: 360, scale: 1.1 }}
                 transition={{ duration: 0.6 }}
@@ -124,7 +102,13 @@ export default function JoinPage() {
               <h3 className="text-xl font-bold mb-2">FREE TRIAL INCLUDED</h3>
               <p className="text-white/70">Try us out before committing</p>
             </motion.div>
-            <motion.div variants={benefitVariant} className="text-center">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-center"
+            >
               <motion.div 
                 whileHover={{ rotate: 360, scale: 1.1 }}
                 transition={{ duration: 0.6 }}
@@ -135,7 +119,13 @@ export default function JoinPage() {
               <h3 className="text-xl font-bold mb-2">NO JOINING FEES</h3>
               <p className="text-white/70">Start immediately with no extra costs</p>
             </motion.div>
-            <motion.div variants={benefitVariant} className="text-center">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="text-center"
+            >
               <motion.div 
                 whileHover={{ rotate: 360, scale: 1.1 }}
                 transition={{ duration: 0.6 }}
@@ -146,7 +136,7 @@ export default function JoinPage() {
               <h3 className="text-xl font-bold mb-2">PERSONAL ORIENTATION</h3>
               <p className="text-white/70">Free gym tour and equipment training</p>
             </motion.div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -156,7 +146,7 @@ export default function JoinPage() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.8 }}
           >
             <Card className="p-8 md:p-12 border-2">
@@ -167,12 +157,7 @@ export default function JoinPage() {
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.1 }}
-                  >
+                  <div>
                     <Label htmlFor="firstName" className="text-base font-bold">FIRST NAME *</Label>
                     <Input 
                       id="firstName"
@@ -183,13 +168,8 @@ export default function JoinPage() {
                       required
                       className="mt-2 h-12"
                     />
-                  </motion.div>
-                  <motion.div
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.1 }}
-                  >
+                  </div>
+                  <div>
                     <Label htmlFor="lastName" className="text-base font-bold">LAST NAME *</Label>
                     <Input 
                       id="lastName"
@@ -200,15 +180,10 @@ export default function JoinPage() {
                       required
                       className="mt-2 h-12"
                     />
-                  </motion.div>
+                  </div>
                 </div>
 
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                >
+                <div>
                   <Label htmlFor="email" className="text-base font-bold">EMAIL ADDRESS *</Label>
                   <Input 
                     id="email"
@@ -219,14 +194,9 @@ export default function JoinPage() {
                     required
                     className="mt-2 h-12"
                   />
-                </motion.div>
+                </div>
 
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
-                >
+                <div>
                   <Label htmlFor="phone" className="text-base font-bold">PHONE NUMBER *</Label>
                   <Input 
                     id="phone"
@@ -237,14 +207,9 @@ export default function JoinPage() {
                     required
                     className="mt-2 h-12"
                   />
-                </motion.div>
+                </div>
 
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.4 }}
-                >
+                <div>
                   <Label htmlFor="membershipPlan" className="text-base font-bold">SELECT MEMBERSHIP PLAN *</Label>
                   <Select value={formData.membershipPlan} onValueChange={(value) => setFormData({...formData, membershipPlan: value})}>
                     <SelectTrigger className="mt-2 h-12">
@@ -258,14 +223,9 @@ export default function JoinPage() {
                       <SelectItem value="annual-champion">ANNUAL CHAMPION - $1290/year</SelectItem>
                     </SelectContent>
                   </Select>
-                </motion.div>
+                </div>
 
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.5 }}
-                >
+                <div>
                   <Label htmlFor="goals" className="text-base font-bold">FITNESS GOALS *</Label>
                   <Select value={formData.goals} onValueChange={(value) => setFormData({...formData, goals: value})}>
                     <SelectTrigger className="mt-2 h-12">
@@ -280,15 +240,9 @@ export default function JoinPage() {
                       <SelectItem value="competition">Competition Training</SelectItem>
                     </SelectContent>
                   </Select>
-                </motion.div>
+                </div>
 
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.6 }}
-                  className="flex items-start gap-3 p-4 bg-[var(--gym-grey)]/10 rounded-lg"
-                >
+                <div className="flex items-start gap-3 p-4 bg-[var(--gym-grey)]/10 rounded-lg">
                   <Checkbox 
                     id="terms"
                     checked={formData.agreed}
@@ -297,21 +251,14 @@ export default function JoinPage() {
                   <Label htmlFor="terms" className="text-sm text-[var(--gym-grey)] cursor-pointer">
                     I agree to the terms and conditions, privacy policy, and membership agreement. I understand that I can cancel anytime with 30 days notice.
                   </Label>
-                </motion.div>
+                </div>
 
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.7 }}
+                <Button 
+                  type="submit"
+                  className="w-full bg-[var(--gym-red)] hover:bg-[var(--gym-red)]/90 text-white font-bold py-6 text-lg rounded-lg hover:scale-105 transition-all"
                 >
-                  <Button 
-                    type="submit"
-                    className="w-full bg-[var(--gym-red)] hover:bg-[var(--gym-red)]/90 text-white font-bold py-6 text-lg rounded-lg hover:scale-105 transition-all"
-                  >
-                    COMPLETE REGISTRATION
-                  </Button>
-                </motion.div>
+                  COMPLETE REGISTRATION
+                </Button>
 
                 <p className="text-center text-sm text-[var(--gym-grey)]">
                   Questions? Call us at (555) 123-4567 or email info@fitnessforge.com
@@ -328,20 +275,19 @@ export default function JoinPage() {
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl font-bold text-center text-black mb-12"
+            className="text-4xl md:text-5xl font-bold text-center text-black mb-16"
           >
             WHAT HAPPENS NEXT?
           </motion.h2>
-          <motion.div 
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
-          >
-            <motion.div variants={stepVariant}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
               <Card className="p-6 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl">
                 <motion.div 
                   whileHover={{ scale: 1.1, rotate: 360 }}
@@ -354,7 +300,12 @@ export default function JoinPage() {
                 <p className="text-black/60">You'll receive a confirmation email with your membership details</p>
               </Card>
             </motion.div>
-            <motion.div variants={stepVariant}>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
               <Card className="p-6 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl">
                 <motion.div 
                   whileHover={{ scale: 1.1, rotate: 360 }}
@@ -367,7 +318,12 @@ export default function JoinPage() {
                 <p className="text-black/60">Schedule your free gym tour and equipment training session</p>
               </Card>
             </motion.div>
-            <motion.div variants={stepVariant}>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
               <Card className="p-6 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl">
                 <motion.div 
                   whileHover={{ scale: 1.1, rotate: 360 }}
@@ -380,7 +336,7 @@ export default function JoinPage() {
                 <p className="text-black/60">Begin your transformation journey with full access to all facilities</p>
               </Card>
             </motion.div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
