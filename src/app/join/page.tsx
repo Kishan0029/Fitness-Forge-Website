@@ -266,19 +266,10 @@ export default function JoinPage() {
                       <SelectValue placeholder="Choose your plan" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="starter">STARTER - $49/month</SelectItem>
-                      <SelectItem value="athlete">
-                        ATHLETE - $79/month (Most Popular)
-                      </SelectItem>
-                      <SelectItem value="champion">
-                        CHAMPION - $129/month
-                      </SelectItem>
-                      <SelectItem value="annual-athlete">
-                        ANNUAL ATHLETE - $790/year
-                      </SelectItem>
-                      <SelectItem value="annual-champion">
-                        ANNUAL CHAMPION - $1290/year
-                      </SelectItem>
+                      <SelectItem value="1-month">1 MONTH - ₹2000/month</SelectItem>
+                      <SelectItem value="3-months">3 MONTHS - ₹5500/3 months</SelectItem>
+                      <SelectItem value="6-months">6 MONTHS - ₹8000/6 months</SelectItem>
+                      <SelectItem value="1-year">1 YEAR - ₹12000/year</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
