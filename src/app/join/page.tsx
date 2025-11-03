@@ -23,22 +23,44 @@ export default function JoinPage() {
     agreed: false
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
     if (!formData.agreed) {
       alert("Please agree to the terms and conditions");
       return;
     }
-    alert("Welcome to Fitness Forge! We'll contact you shortly to complete your registration.");
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      membershipPlan: "",
-      goals: "",
-      agreed: false
-    });
+
+    try {
+      const response = await fetch("https://formcarry.com/s/0inUlLiqrXw", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        alert("Thank you! Your registration has been submitted successfully.");
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          membershipPlan: "",
+          goals: "",
+          agreed: false,
+        });
+      } else {
+        alert(result.message || "Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error submitting the form:", error);
+      alert("Error submitting the form. Please try again later.");
+    }
   };
 
   return (
@@ -140,247 +162,188 @@ export default function JoinPage() {
         </div>
       </section>
 
-      "use client";
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { Card } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Button } from "@/components/ui/button";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Checkbox } from "@/components/ui/checkbox";
+      {/* Membership Form Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8 }}
+          >
+            <Card className="p-8 md:p-12 border-2">
+              <div className="text-center mb-8">
+                <h2 className="text-4xl font-bold text-black mb-4">START YOUR MEMBERSHIP</h2>
+                <p className="text-lg text-[var(--gym-grey)]">
+                  Fill out the form below and we'll get you started
+                </p>
+              </div>
 
-export default function MembershipForm() {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    membershipPlan: "",
-    goals: "",
-    agreed: false,
-  });
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <Label htmlFor="firstName" className="text-base font-bold">
+                      FIRST NAME *
+                    </Label>
+                    <Input
+                      id="firstName"
+                      type="text"
+                      placeholder="John"
+                      value={formData.firstName}
+                      onChange={(e) =>
+                        setFormData({ ...formData, firstName: e.target.value })
+                      }
+                      required
+                      className="mt-2 h-12"
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="lastName" className="text-base font-bold">
+                      LAST NAME *
+                    </Label>
+                    <Input
+                      id="lastName"
+                      type="text"
+                      placeholder="Doe"
+                      value={formData.lastName}
+                      onChange={(e) =>
+                        setFormData({ ...formData, lastName: e.target.value })
+                      }
+                      required
+                      className="mt-2 h-12"
+                    />
+                  </div>
+                </div>
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    try {
-      const response = await fetch("https://formcarry.com/s/0inUlLiqrXw", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const result = await response.json();
-
-      if (response.ok) {
-        alert("Thank you! Your registration has been submitted successfully.");
-        setFormData({
-          firstName: "",
-          lastName: "",
-          email: "",
-          phone: "",
-          membershipPlan: "",
-          goals: "",
-          agreed: false,
-        });
-      } else {
-        alert(result.message || "Something went wrong. Please try again.");
-      }
-    } catch (error) {
-      console.error("Error submitting the form:", error);
-      alert("Error submitting the form. Please try again later.");
-    }
-  };
-
-  return (
-    <section className="py-20 bg-white">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.8 }}
-        >
-          <Card className="p-8 md:p-12 border-2">
-            <div className="text-center mb-8">
-              <h2 className="text-4xl font-bold text-black mb-4">START YOUR MEMBERSHIP</h2>
-              <p className="text-lg text-[var(--gym-grey)]">
-                Fill out the form below and we'll get you started
-              </p>
-            </div>
-
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <Label htmlFor="firstName" className="text-base font-bold">
-                    FIRST NAME *
+                  <Label htmlFor="email" className="text-base font-bold">
+                    EMAIL ADDRESS *
                   </Label>
                   <Input
-                    id="firstName"
-                    type="text"
-                    placeholder="John"
-                    value={formData.firstName}
+                    id="email"
+                    type="email"
+                    placeholder="john.doe@example.com"
+                    value={formData.email}
                     onChange={(e) =>
-                      setFormData({ ...formData, firstName: e.target.value })
+                      setFormData({ ...formData, email: e.target.value })
                     }
                     required
                     className="mt-2 h-12"
                   />
                 </div>
+
                 <div>
-                  <Label htmlFor="lastName" className="text-base font-bold">
-                    LAST NAME *
+                  <Label htmlFor="phone" className="text-base font-bold">
+                    PHONE NUMBER *
                   </Label>
                   <Input
-                    id="lastName"
-                    type="text"
-                    placeholder="Doe"
-                    value={formData.lastName}
+                    id="phone"
+                    type="tel"
+                    placeholder="(555) 123-4567"
+                    value={formData.phone}
                     onChange={(e) =>
-                      setFormData({ ...formData, lastName: e.target.value })
+                      setFormData({ ...formData, phone: e.target.value })
                     }
                     required
                     className="mt-2 h-12"
                   />
                 </div>
-              </div>
 
-              <div>
-                <Label htmlFor="email" className="text-base font-bold">
-                  EMAIL ADDRESS *
-                </Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="john.doe@example.com"
-                  value={formData.email}
-                  onChange={(e) =>
-                    setFormData({ ...formData, email: e.target.value })
-                  }
-                  required
-                  className="mt-2 h-12"
-                />
-              </div>
+                <div>
+                  <Label
+                    htmlFor="membershipPlan"
+                    className="text-base font-bold"
+                  >
+                    SELECT MEMBERSHIP PLAN *
+                  </Label>
+                  <Select
+                    value={formData.membershipPlan}
+                    onValueChange={(value) =>
+                      setFormData({ ...formData, membershipPlan: value })
+                    }
+                  >
+                    <SelectTrigger className="mt-2 h-12">
+                      <SelectValue placeholder="Choose your plan" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="starter">STARTER - $49/month</SelectItem>
+                      <SelectItem value="athlete">
+                        ATHLETE - $79/month (Most Popular)
+                      </SelectItem>
+                      <SelectItem value="champion">
+                        CHAMPION - $129/month
+                      </SelectItem>
+                      <SelectItem value="annual-athlete">
+                        ANNUAL ATHLETE - $790/year
+                      </SelectItem>
+                      <SelectItem value="annual-champion">
+                        ANNUAL CHAMPION - $1290/year
+                      </SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
 
-              <div>
-                <Label htmlFor="phone" className="text-base font-bold">
-                  PHONE NUMBER *
-                </Label>
-                <Input
-                  id="phone"
-                  type="tel"
-                  placeholder="(555) 123-4567"
-                  value={formData.phone}
-                  onChange={(e) =>
-                    setFormData({ ...formData, phone: e.target.value })
-                  }
-                  required
-                  className="mt-2 h-12"
-                />
-              </div>
+                <div>
+                  <Label htmlFor="goals" className="text-base font-bold">
+                    FITNESS GOALS *
+                  </Label>
+                  <Select
+                    value={formData.goals}
+                    onValueChange={(value) =>
+                      setFormData({ ...formData, goals: value })
+                    }
+                  >
+                    <SelectTrigger className="mt-2 h-12">
+                      <SelectValue placeholder="What's your primary goal?" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="weight-loss">Weight Loss</SelectItem>
+                      <SelectItem value="muscle-gain">Muscle Gain</SelectItem>
+                      <SelectItem value="strength">Increase Strength</SelectItem>
+                      <SelectItem value="endurance">Build Endurance</SelectItem>
+                      <SelectItem value="general-fitness">
+                        General Fitness
+                      </SelectItem>
+                      <SelectItem value="competition">
+                        Competition Training
+                      </SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
 
-              <div>
-                <Label
-                  htmlFor="membershipPlan"
-                  className="text-base font-bold"
+                <div className="flex items-start gap-3 p-4 bg-[var(--gym-grey)]/10 rounded-lg">
+                  <Checkbox
+                    id="terms"
+                    checked={formData.agreed}
+                    onCheckedChange={(checked) =>
+                      setFormData({ ...formData, agreed: checked as boolean })
+                    }
+                  />
+                  <Label
+                    htmlFor="terms"
+                    className="text-sm text-[var(--gym-grey)] cursor-pointer"
+                  >
+                    I agree to the terms and conditions, privacy policy, and
+                    membership agreement. I understand that I can cancel anytime
+                    with 30 days notice.
+                  </Label>
+                </div>
+
+                <Button
+                  type="submit"
+                  className="w-full bg-[var(--gym-red)] hover:bg-[var(--gym-red)]/90 text-white font-bold py-6 text-lg rounded-lg hover:scale-105 transition-all"
                 >
-                  SELECT MEMBERSHIP PLAN *
-                </Label>
-                <Select
-                  value={formData.membershipPlan}
-                  onValueChange={(value) =>
-                    setFormData({ ...formData, membershipPlan: value })
-                  }
-                >
-                  <SelectTrigger className="mt-2 h-12">
-                    <SelectValue placeholder="Choose your plan" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="starter">STARTER - $49/month</SelectItem>
-                    <SelectItem value="athlete">
-                      ATHLETE - $79/month (Most Popular)
-                    </SelectItem>
-                    <SelectItem value="champion">
-                      CHAMPION - $129/month
-                    </SelectItem>
-                    <SelectItem value="annual-athlete">
-                      ANNUAL ATHLETE - $790/year
-                    </SelectItem>
-                    <SelectItem value="annual-champion">
-                      ANNUAL CHAMPION - $1290/year
-                    </SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
+                  COMPLETE REGISTRATION
+                </Button>
 
-              <div>
-                <Label htmlFor="goals" className="text-base font-bold">
-                  FITNESS GOALS *
-                </Label>
-                <Select
-                  value={formData.goals}
-                  onValueChange={(value) =>
-                    setFormData({ ...formData, goals: value })
-                  }
-                >
-                  <SelectTrigger className="mt-2 h-12">
-                    <SelectValue placeholder="What's your primary goal?" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="weight-loss">Weight Loss</SelectItem>
-                    <SelectItem value="muscle-gain">Muscle Gain</SelectItem>
-                    <SelectItem value="strength">Increase Strength</SelectItem>
-                    <SelectItem value="endurance">Build Endurance</SelectItem>
-                    <SelectItem value="general-fitness">
-                      General Fitness
-                    </SelectItem>
-                    <SelectItem value="competition">
-                      Competition Training
-                    </SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-
-              <div className="flex items-start gap-3 p-4 bg-[var(--gym-grey)]/10 rounded-lg">
-                <Checkbox
-                  id="terms"
-                  checked={formData.agreed}
-                  onCheckedChange={(checked) =>
-                    setFormData({ ...formData, agreed: checked as boolean })
-                  }
-                />
-                <Label
-                  htmlFor="terms"
-                  className="text-sm text-[var(--gym-grey)] cursor-pointer"
-                >
-                  I agree to the terms and conditions, privacy policy, and
-                  membership agreement. I understand that I can cancel anytime
-                  with 30 days notice.
-                </Label>
-              </div>
-
-              <Button
-                type="submit"
-                className="w-full bg-[var(--gym-red)] hover:bg-[var(--gym-red)]/90 text-white font-bold py-6 text-lg rounded-lg hover:scale-105 transition-all"
-              >
-                COMPLETE REGISTRATION
-              </Button>
-
-              <p className="text-center text-sm text-[var(--gym-grey)]">
-                Questions? Call us at (555) 123-4567 or email info@fitnessforge.com
-              </p>
-            </form>
-          </Card>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
+                <p className="text-center text-sm text-[var(--gym-grey)]">
+                  Questions? Call us at (555) 123-4567 or email info@fitnessforge.com
+                </p>
+              </form>
+            </Card>
+          </motion.div>
+        </div>
+      </section>
 
       {/* What Happens Next */}
       <section className="py-20 bg-[var(--gym-grey)]/10">
