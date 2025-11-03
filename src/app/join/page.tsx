@@ -25,7 +25,7 @@ export default function JoinPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
+    
     if (!formData.agreed) {
       alert("Please agree to the terms and conditions");
       return;
