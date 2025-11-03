@@ -380,8 +380,6 @@ export default function MembershipForm() {
     </section>
   );
 }
-
-
       {/* What Happens Next */}
       <section className="py-20 bg-[var(--gym-grey)]/10">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
