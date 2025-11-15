@@ -23,6 +23,11 @@ export default function JoinPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    // Validate required fields
+    if (!formData.genderPlan || !formData.goals) {
+      return;
+    }
+
     // Format the message for WhatsApp
     const message = `*New Free Trial Registration* 🏋️
 
@@ -38,17 +43,26 @@ _Sent from Fitness Forge Website_`;
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
 
-    // Open WhatsApp in new tab
-    window.open(whatsappURL, "_blank");
+    // Handle iframe compatibility for opening WhatsApp
+    const isInIframe = window.self !== window.top;
+    if (isInIframe) {
+      // If in iframe, post message to parent window
+      window.parent.postMessage({ type: "OPEN_EXTERNAL_URL", data: { url: whatsappURL } }, "*");
+    } else {
+      // If not in iframe, open normally
+      window.open(whatsappURL, "_blank", "noopener,noreferrer");
+    }
 
-    // Reset form
-    setFormData({
-      firstName: "",
-      lastName: "",
-      phone: "",
-      genderPlan: "",
-      goals: ""
-    });
+    // Reset form after a short delay
+    setTimeout(() => {
+      setFormData({
+        firstName: "",
+        lastName: "",
+        phone: "",
+        genderPlan: "",
+        goals: ""
+      });
+    }, 500);
   };
 
   return (
