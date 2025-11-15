@@ -68,12 +68,14 @@ export default function Home() {
 
   const scrollToIndex = (index: number) => {
     if (scrollContainerRef.current) {
-      const container = scrollContainerRef.current;
-      const cardWidth = container.scrollWidth / features.length;
-      container.scrollTo({
-        left: cardWidth * index,
-        behavior: "smooth"
-      });
+      const cards = scrollContainerRef.current.children;
+      if (cards[index]) {
+        cards[index].scrollIntoView({
+          behavior: "smooth",
+          block: "nearest",
+          inline: "center"
+        });
+      }
       setCurrentIndex(index);
     }
   };
