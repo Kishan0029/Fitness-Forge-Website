@@ -23,34 +23,32 @@ export default function JoinPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    try {
-      const response = await fetch("https://formcarry.com/s/0inUlLiqrXw", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+    // Format the message for WhatsApp
+    const message = `*New Free Trial Registration* 🏋️
 
-      const result = await response.json();
+*Name:* ${formData.firstName} ${formData.lastName}
+*Phone:* ${formData.phone}
+*Gender Plan:* ${formData.genderPlan}
+*Fitness Goals:* ${formData.goals}
 
-      if (response.ok) {
-        alert("Thank you! Your registration has been submitted successfully.");
-        setFormData({
-          firstName: "",
-          lastName: "",
-          phone: "",
-          genderPlan: "",
-          goals: ""
-        });
-      } else {
-        alert(result.message || "Something went wrong. Please try again.");
-      }
-    } catch (error) {
-      console.error("Error submitting the form:", error);
-      alert("Error submitting the form. Please try again later.");
-    }
+_Sent from Fitness Forge Website_`;
+
+    // Create WhatsApp URL
+    const whatsappNumber = "919730174828"; // Include country code
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+    // Open WhatsApp in new tab
+    window.open(whatsappURL, "_blank");
+
+    // Reset form
+    setFormData({
+      firstName: "",
+      lastName: "",
+      phone: "",
+      genderPlan: "",
+      goals: ""
+    });
   };
 
   return (
