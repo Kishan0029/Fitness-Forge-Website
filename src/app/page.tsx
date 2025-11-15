@@ -68,9 +68,12 @@ export default function Home() {
 
   const scrollToIndex = (index: number) => {
     if (scrollContainerRef.current) {
-      const cardWidth = scrollContainerRef.current.scrollWidth / features.length;
-      const scrollPosition = cardWidth * index;
-      scrollContainerRef.current.scrollTo({
+      const container = scrollContainerRef.current;
+      const gap = 24; // 6 in Tailwind = 24px
+      const cardWidth = (container.offsetWidth - (gap * 3)) / 4; // 4 cards visible, 3 gaps between
+      const scrollPosition = index * (cardWidth + gap);
+      
+      container.scrollTo({
         left: scrollPosition,
         behavior: "smooth"
       });
@@ -190,8 +193,7 @@ export default function Home() {
             <div className="overflow-hidden">
               <div
                 ref={scrollContainerRef}
-                className="flex gap-6 overflow-x-auto scrollbar-hide scroll-smooth"
-                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                className="flex gap-6 overflow-x-hidden scroll-smooth"
               >
                 {features.map((feature, index) => {
                   const Icon = feature.icon;
@@ -203,7 +205,6 @@ export default function Home() {
                       viewport={{ once: true }}
                       transition={{ duration: 0.3, delay: index * 0.05 }}
                       className="flex-shrink-0 w-[calc(25%-18px)]"
-                      style={{ minWidth: 'calc(25% - 18px)' }}
                     >
                       <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl h-full flex flex-col">
                         <motion.div 
