@@ -170,9 +170,9 @@ export default function ContactPage() {
                       <div>
                         <h3 className="font-bold text-lg mb-1">GYM HOURS</h3>
                         <p className="text-[var(--gym-grey)]">
-                          Mon - Fri: 5:00 AM - 11:00 PM<br />
-                          Saturday: 6:00 AM - 10:00 PM<br />
-                          Sunday: 7:00 AM - 9:00 PM
+                          Mon - Sat: 6:00 AM - 11:30 AM<br />
+                          Mon - Sat: 4:00 PM - 10:00 PM<br />
+                          Sunday: Holiday
                         </p>
                       </div>
                     </div>
