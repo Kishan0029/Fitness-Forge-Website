@@ -145,8 +145,8 @@ export default function TestimonialsPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: 0.05, type: "spring" }}
             >
-              <div className="text-5xl font-bold text-[var(--gym-red)] mb-2">50K+</div>
-              <div className="text-lg text-[var(--gym-grey)]">Pounds Lost</div>
+              <div className="text-5xl font-bold text-[var(--gym-red)] mb-2">23K+</div>
+              <div className="text-lg text-[var(--gym-grey)]">Kilograms Lost</div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, scale: 0 }}
