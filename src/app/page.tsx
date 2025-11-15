@@ -189,7 +189,7 @@ export default function Home() {
             {/* Scrollable Cards Container */}
             <div
               ref={scrollContainerRef}
-              className="flex gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory scroll-smooth pb-4"
+              className="flex gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory scroll-smooth pb-4 px-2"
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
               {features.map((feature, index) => {
@@ -201,7 +201,7 @@ export default function Home() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.3, delay: index * 0.05 }}
-                    className="flex-shrink-0 w-80 snap-center"
+                    className="flex-shrink-0 w-80 snap-center first:ml-0 last:mr-0"
                   >
                     <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl h-full flex flex-col">
                       <motion.div 
