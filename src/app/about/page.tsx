@@ -77,13 +77,13 @@ export default function AboutPage() {
             >
               <h2 className="text-5xl font-bold text-black mb-6">OUR STORY</h2>
               <p className="text-lg text-[var(--gym-grey)] mb-4">
-                Founded in 2014, Fitness Forge began with a simple mission: to create a space where individuals could push their limits, break through barriers, and forge their strongest selves.
+                Founded in 2018, Fitness Forge began with a simple mission: to build a space where individuals could push their limits, break barriers, and forge their strongest selves.
               </p>
               <p className="text-lg text-[var(--gym-grey)] mb-4">
-                What started as a small warehouse gym has grown into a thriving community of over 5,000 members. We've witnessed countless transformations, celebrated numerous victories, and built a family that supports each other through every rep, every set, and every challenge.
+                What started as a 4800 sq. ft. gym has grown into a powerful fitness community that continues to expand. Over the years, we've upgraded, evolved, and transformed—now standing proudly as a 6500 sq. ft. state-of-the-art training facility. We've seen incredible journeys, celebrated real progress, and built a family that supports each other through every rep, every set, and every challenge.
               </p>
               <p className="text-lg text-[var(--gym-grey)]">
-                Today, Fitness Forge stands as more than just a gym—it's a movement. A place where discipline meets determination, where strength is built both physically and mentally, and where your legacy begins.
+                Today, Fitness Forge is more than just a gym—it's a movement. A place where discipline meets determination, where strength is built inside and out, and where your transformation truly begins.
               </p>
             </motion.div>
             <motion.div 
