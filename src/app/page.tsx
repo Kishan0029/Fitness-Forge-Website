@@ -68,14 +68,12 @@ export default function Home() {
 
   const scrollToIndex = (index: number) => {
     if (scrollContainerRef.current) {
-      const cards = scrollContainerRef.current.children;
-      if (cards[index]) {
-        cards[index].scrollIntoView({
-          behavior: "smooth",
-          block: "nearest",
-          inline: "center"
-        });
-      }
+      const cardWidth = scrollContainerRef.current.scrollWidth / features.length;
+      const scrollPosition = cardWidth * index;
+      scrollContainerRef.current.scrollTo({
+        left: scrollPosition,
+        behavior: "smooth"
+      });
       setCurrentIndex(index);
     }
   };
@@ -189,38 +187,41 @@ export default function Home() {
             </button>
 
             {/* Scrollable Cards Container */}
-            <div
-              ref={scrollContainerRef}
-              className="flex gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory scroll-smooth pb-4 px-12"
-              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-            >
-              {features.map((feature, index) => {
-                const Icon = feature.icon;
-                return (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: index * 0.05 }}
-                    className="flex-shrink-0 w-80 snap-center"
-                  >
-                    <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl h-full flex flex-col">
-                      <motion.div 
-                        whileHover={{ rotate: 360 }}
-                        transition={{ duration: 0.4 }}
-                        className="bg-[var(--gym-red)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
-                      >
-                        <Icon className="w-8 h-8 text-white" />
-                      </motion.div>
-                      <h3 className="text-2xl font-bold mb-3">{feature.title}</h3>
-                      <p className="text-[var(--gym-grey)] flex-grow">
-                        {feature.description}
-                      </p>
-                    </Card>
-                  </motion.div>
-                );
-              })}
+            <div className="overflow-hidden">
+              <div
+                ref={scrollContainerRef}
+                className="flex gap-6 overflow-x-auto scrollbar-hide scroll-smooth"
+                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+              >
+                {features.map((feature, index) => {
+                  const Icon = feature.icon;
+                  return (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.3, delay: index * 0.05 }}
+                      className="flex-shrink-0 w-[calc(25%-18px)]"
+                      style={{ minWidth: 'calc(25% - 18px)' }}
+                    >
+                      <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl h-full flex flex-col">
+                        <motion.div 
+                          whileHover={{ rotate: 360 }}
+                          transition={{ duration: 0.4 }}
+                          className="bg-[var(--gym-red)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+                        >
+                          <Icon className="w-8 h-8 text-white" />
+                        </motion.div>
+                        <h3 className="text-2xl font-bold mb-3">{feature.title}</h3>
+                        <p className="text-[var(--gym-grey)] flex-grow">
+                          {feature.description}
+                        </p>
+                      </Card>
+                    </motion.div>
+                  );
+                })}
+              </div>
             </div>
 
             {/* Dots Indicator */}
