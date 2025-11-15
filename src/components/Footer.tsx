@@ -52,12 +52,19 @@ export default function Footer() {
                   Testimonials
                 </Link>
               </li>
+              <li>
+                <Link href="/contact" className="text-[var(--gym-grey)] hover:text-white transition-colors">
+                  Contact Us
+                </Link>
+              </li>
             </ul>
           </div>
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-lg font-bold mb-4 text-[var(--gym-red)]">CONTACT US</h3>
+            <Link href="/contact">
+              <h3 className="text-lg font-bold mb-4 text-[var(--gym-red)] hover:text-white transition-colors cursor-pointer">CONTACT US</h3>
+            </Link>
             <ul className="space-y-3">
               <li className="flex items-start gap-2">
                 <MapPin className="w-5 h-5 text-[var(--gym-red)] flex-shrink-0 mt-0.5" />
@@ -67,15 +74,21 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-5 h-5 text-[var(--gym-red)]" />
-                <span className="text-[var(--gym-grey)] text-sm">8722584343</span>
+                <a href="tel:8722584343" className="text-[var(--gym-grey)] text-sm hover:text-white transition-colors">
+                  8722584343
+                </a>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-5 h-5 text-[var(--gym-red)]" />
-                <span className="text-[var(--gym-grey)] text-sm">9730174828</span>
+                <a href="tel:9730174828" className="text-[var(--gym-grey)] text-sm hover:text-white transition-colors">
+                  9730174828
+                </a>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-5 h-5 text-[var(--gym-red)]" />
-                <span className="text-[var(--gym-grey)] text-sm">info@fitnessforge.com</span>
+                <a href="mailto:info@fitnessforge.com" className="text-[var(--gym-grey)] text-sm hover:text-white transition-colors">
+                  info@fitnessforge.com
+                </a>
               </li>
             </ul>
           </div>
