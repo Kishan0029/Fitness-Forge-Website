@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Checkbox } from "@/components/ui/checkbox";
 import { useState } from "react";
 import { Dumbbell, Award, Users } from "lucide-react";
 import { motion } from "framer-motion";
@@ -16,20 +15,13 @@ export default function JoinPage() {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
-    email: "",
     phone: "",
-    membershipPlan: "",
-    goals: "",
-    agreed: false
+    genderPlan: "",
+    goals: ""
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    if (!formData.agreed) {
-      alert("Please agree to the terms and conditions");
-      return;
-    }
 
     try {
       const response = await fetch("https://formcarry.com/s/0inUlLiqrXw", {
@@ -48,11 +40,9 @@ export default function JoinPage() {
         setFormData({
           firstName: "",
           lastName: "",
-          email: "",
           phone: "",
-          membershipPlan: "",
-          goals: "",
-          agreed: false,
+          genderPlan: "",
+          goals: ""
         });
       } else {
         alert(result.message || "Something went wrong. Please try again.");
@@ -173,7 +163,7 @@ export default function JoinPage() {
           >
             <Card className="p-8 md:p-12 border-2">
               <div className="text-center mb-8">
-                <h2 className="text-4xl font-bold text-black mb-4">START YOUR MEMBERSHIP</h2>
+                <h2 className="text-4xl font-bold text-black mb-4">BOOK A FREE TRIAL</h2>
                 <p className="text-lg text-[var(--gym-grey)]">
                   Fill out the form below and we'll get you started
                 </p>
@@ -216,30 +206,13 @@ export default function JoinPage() {
                 </div>
 
                 <div>
-                  <Label htmlFor="email" className="text-base font-bold">
-                    EMAIL ADDRESS *
-                  </Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="john.doe@example.com"
-                    value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
-                    required
-                    className="mt-2 h-12"
-                  />
-                </div>
-
-                <div>
                   <Label htmlFor="phone" className="text-base font-bold">
                     PHONE NUMBER *
                   </Label>
                   <Input
                     id="phone"
                     type="tel"
-                    placeholder="(555) 123-4567"
+                    placeholder="8722584343"
                     value={formData.phone}
                     onChange={(e) =>
                       setFormData({ ...formData, phone: e.target.value })
@@ -251,25 +224,24 @@ export default function JoinPage() {
 
                 <div>
                   <Label
-                    htmlFor="membershipPlan"
+                    htmlFor="genderPlan"
                     className="text-base font-bold"
                   >
-                    SELECT MEMBERSHIP PLAN *
+                    GENDER PLAN *
                   </Label>
                   <Select
-                    value={formData.membershipPlan}
+                    value={formData.genderPlan}
                     onValueChange={(value) =>
-                      setFormData({ ...formData, membershipPlan: value })
+                      setFormData({ ...formData, genderPlan: value })
                     }
                   >
                     <SelectTrigger className="mt-2 h-12">
                       <SelectValue placeholder="Choose your plan" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="1-month">1 MONTH - ₹2000/month</SelectItem>
-                      <SelectItem value="3-months">3 MONTHS - ₹5500/3 months</SelectItem>
-                      <SelectItem value="6-months">6 MONTHS - ₹8000/6 months</SelectItem>
-                      <SelectItem value="1-year">1 YEAR - ₹12000/year</SelectItem>
+                      <SelectItem value="male">Male</SelectItem>
+                      <SelectItem value="female">Female</SelectItem>
+                      <SelectItem value="student">Student</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -302,24 +274,6 @@ export default function JoinPage() {
                   </Select>
                 </div>
 
-                <div className="flex items-start gap-3 p-4 bg-[var(--gym-grey)]/10 rounded-lg">
-                  <Checkbox
-                    id="terms"
-                    checked={formData.agreed}
-                    onCheckedChange={(checked) =>
-                      setFormData({ ...formData, agreed: checked as boolean })
-                    }
-                  />
-                  <Label
-                    htmlFor="terms"
-                    className="text-sm text-[var(--gym-grey)] cursor-pointer"
-                  >
-                    I agree to the terms and conditions, privacy policy, and
-                    membership agreement. I understand that I can cancel anytime
-                    with 30 days notice.
-                  </Label>
-                </div>
-
                 <Button
                   type="submit"
                   className="w-full bg-[var(--gym-red)] hover:bg-[var(--gym-red)]/90 text-white font-bold py-6 text-lg rounded-lg hover:scale-105 transition-all"
@@ -328,7 +282,7 @@ export default function JoinPage() {
                 </Button>
 
                 <p className="text-center text-sm text-[var(--gym-grey)]">
-                  Questions? Call us at (555) 123-4567 or email info@fitnessforge.com
+                  Questions? Call us at 8722584343 or email info@fitnessforge.com
                 </p>
               </form>
             </Card>
