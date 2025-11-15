@@ -5,33 +5,31 @@ import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, Info } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function MembershipPage() {
-  const plans = [
+  const mensPlans = [
     {
       name: "1 MONTH",
-      price: 2000,
+      price: 2500,
       period: "month",
       description: "Perfect for short-term commitment",
       features: [
         "Full gym access",
         "All equipment and facilities",
-        "Group fitness classes",
         "Locker facilities",
         "Expert trainer support"
       ]
     },
     {
       name: "3 MONTHS",
-      price: 5500,
+      price: 6250,
       period: "3 months",
       description: "Great for building consistency",
       features: [
         "Full gym access",
         "All equipment and facilities",
-        "Group fitness classes",
         "Locker facilities",
         "Expert trainer support",
         "Better value than monthly"
@@ -39,31 +37,82 @@ export default function MembershipPage() {
     },
     {
       name: "6 MONTHS",
-      price: 8000,
+      price: 9350,
       period: "6 months",
       description: "Ideal for serious fitness goals",
       features: [
         "Full gym access",
         "All equipment and facilities",
-        "Group fitness classes",
         "Locker facilities",
         "Expert trainer support",
-        "Nutrition consultation",
         "Significant savings"
       ]
     },
     {
       name: "1 YEAR",
-      price: 12000,
+      price: 12500,
       period: "year",
       description: "Best value for dedicated members",
       features: [
         "Full gym access",
         "All equipment and facilities",
-        "Group fitness classes",
         "Locker facilities",
         "Expert trainer support",
-        "Nutrition consultation",
+        "Priority class booking",
+        "Maximum savings"
+      ]
+    }
+  ];
+
+  const womensStudentsPlans = [
+    {
+      name: "1 MONTH",
+      price: 1875,
+      period: "month",
+      description: "Perfect for short-term commitment",
+      features: [
+        "Full gym access",
+        "All equipment and facilities",
+        "Locker facilities",
+        "Expert trainer support"
+      ]
+    },
+    {
+      name: "3 MONTHS",
+      price: 4750,
+      period: "3 months",
+      description: "Great for building consistency",
+      features: [
+        "Full gym access",
+        "All equipment and facilities",
+        "Locker facilities",
+        "Expert trainer support",
+        "Better value than monthly"
+      ]
+    },
+    {
+      name: "6 MONTHS",
+      price: 7000,
+      period: "6 months",
+      description: "Ideal for serious fitness goals",
+      features: [
+        "Full gym access",
+        "All equipment and facilities",
+        "Locker facilities",
+        "Expert trainer support",
+        "Significant savings"
+      ]
+    },
+    {
+      name: "1 YEAR",
+      price: 9500,
+      period: "year",
+      description: "Best value for dedicated members",
+      features: [
+        "Full gym access",
+        "All equipment and facilities",
+        "Locker facilities",
+        "Expert trainer support",
         "Priority class booking",
         "Maximum savings"
       ]
@@ -101,7 +150,7 @@ export default function MembershipPage() {
         </div>
       </section>
 
-      {/* Plans */}
+      {/* Men's Plans */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
@@ -111,11 +160,73 @@ export default function MembershipPage() {
             transition={{ duration: 0.4 }}
             className="text-center mb-16"
           >
-            <h2 className="text-5xl font-bold text-black mb-4">OUR PLANS</h2>
+            <h2 className="text-5xl font-bold text-black mb-4">MEN'S MEMBERSHIP</h2>
             <p className="text-xl text-[var(--gym-grey)]">Flexible membership options to fit your lifestyle</p>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {plans.map((plan, index) => (
+            {mensPlans.map((plan, index) => (
+              <motion.div
+                key={plan.name}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: index * 0.05 }}
+                whileHover={{ scale: 1.03, y: -5 }}
+                className="h-full"
+              >
+                <Card 
+                  className="relative p-8 border-2 border-[var(--gym-grey)]/20 hover:border-[var(--gym-red)] hover:shadow-2xl transition-all h-full flex flex-col"
+                >
+                  <div className="text-center mb-6">
+                    <h3 className="text-3xl font-bold mb-2">{plan.name}</h3>
+                    <p className="text-[var(--gym-grey)] text-sm mb-4">{plan.description}</p>
+                    <div className="flex items-end justify-center gap-2">
+                      <span className="text-5xl font-bold text-black">₹{plan.price}</span>
+                    </div>
+                    <span className="text-[var(--gym-grey)] text-sm">/{plan.period}</span>
+                  </div>
+                  <div className="space-y-3 mb-8 flex-grow">
+                    {plan.features.map((feature, idx) => (
+                      <div 
+                        key={feature} 
+                        className="flex items-start gap-3"
+                      >
+                        <CheckCircle className="w-5 h-5 text-[var(--gym-red)] flex-shrink-0 mt-0.5" />
+                        <span className="text-[var(--gym-grey)] text-sm">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <Link href="/join" className="mt-auto">
+                    <Button className="w-full bg-black hover:bg-black/90 text-white font-bold py-6 text-lg rounded-lg hover:scale-105 transition-all">
+                      JOIN NOW
+                    </Button>
+                  </Link>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Women's & Students Plans */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
+            className="text-center mb-8"
+          >
+            <h2 className="text-5xl font-bold text-black mb-4">WOMEN'S & STUDENTS MEMBERSHIP</h2>
+            <p className="text-xl text-[var(--gym-grey)] mb-4">Special pricing for women and students (below 21 years)</p>
+            <div className="inline-flex items-center gap-2 bg-[var(--gym-red)]/10 border border-[var(--gym-red)]/20 rounded-lg px-4 py-2 text-sm text-[var(--gym-red)]">
+              <Info className="w-4 h-4" />
+              <span className="font-semibold">Student ID and Aadhar Card mandatory for student verification</span>
+            </div>
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {womensStudentsPlans.map((plan, index) => (
               <motion.div
                 key={plan.name}
                 initial={{ opacity: 0, y: 50 }}
@@ -225,6 +336,20 @@ export default function MembershipPage() {
               </div>
             </motion.div>
           </div>
+          
+          {/* Group Discount Notice */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.3 }}
+            className="mt-12 p-6 bg-[var(--gym-red)]/10 border-2 border-[var(--gym-red)] rounded-xl text-center"
+          >
+            <h3 className="text-2xl font-bold mb-2 text-[var(--gym-red)]">GROUP DISCOUNT AVAILABLE!</h3>
+            <p className="text-white text-lg">
+              Special group discount for yearly memberships when 5 or more people join together
+            </p>
+          </motion.div>
         </div>
       </section>
 
