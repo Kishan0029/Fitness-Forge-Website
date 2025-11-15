@@ -250,16 +250,16 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
               whileHover={{ scale: 1.05 }}
-              className="relative overflow-hidden rounded-xl group cursor-pointer"
+              className="relative overflow-hidden rounded-xl group cursor-pointer h-80"
             >
               <img 
                 src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=600&q=80" 
                 alt="Strength Training"
-                className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent flex flex-col justify-end p-6">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent flex flex-col justify-end p-6">
                 <h3 className="text-3xl font-bold mb-2">STRENGTH TRAINING</h3>
-                <p className="text-[var(--gym-grey)] mb-4">Build muscle and increase power</p>
+                <p className="text-white/80 mb-4">Build muscle and increase power</p>
               </div>
             </motion.div>
             <motion.div 
@@ -268,16 +268,16 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
               whileHover={{ scale: 1.05 }}
-              className="relative overflow-hidden rounded-xl group cursor-pointer"
+              className="relative overflow-hidden rounded-xl group cursor-pointer h-80"
             >
               <img 
                 src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=600&q=80" 
                 alt="Functional Training"
-                className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent flex flex-col justify-end p-6">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent flex flex-col justify-end p-6">
                 <h3 className="text-3xl font-bold mb-2">FUNCTIONAL TRAINING</h3>
-                <p className="text-[var(--gym-grey)] mb-4">Improve everyday movement and performance</p>
+                <p className="text-white/80 mb-4">Improve everyday movement and performance</p>
               </div>
             </motion.div>
             <motion.div 
@@ -286,16 +286,16 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 }}
               whileHover={{ scale: 1.05 }}
-              className="relative overflow-hidden rounded-xl group cursor-pointer"
+              className="relative overflow-hidden rounded-xl group cursor-pointer h-80"
             >
               <img 
-                src="https://images.unsplash.com/photo-1599447292325-8fcfb6a6136e?w=600&q=80" 
+                src="https://images.unsplash.com/photo-1611672585731-fa10603fb9e0?w=600&q=80" 
                 alt="Kids Gymnastics"
-                className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent flex flex-col justify-end p-6">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent flex flex-col justify-end p-6">
                 <h3 className="text-3xl font-bold mb-2">KIDS GYMNASTICS</h3>
-                <p className="text-[var(--gym-grey)] mb-4">Fun and safe fitness for children</p>
+                <p className="text-white/80 mb-4">Fun and safe fitness for children</p>
               </div>
             </motion.div>
           </div>
