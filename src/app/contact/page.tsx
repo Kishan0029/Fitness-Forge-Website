@@ -125,7 +125,6 @@ export default function ContactPage() {
                       <div>
                         <h3 className="font-bold text-lg mb-1">PHONE</h3>
                         <p className="text-[var(--gym-grey)]">8722584343</p>
-                        <p className="text-sm text-[var(--gym-grey)]">Mon-Fri: 6am - 10pm</p>
                       </div>
                     </div>
                   </Card>
