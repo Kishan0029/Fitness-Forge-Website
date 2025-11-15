@@ -163,7 +163,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
             <h2 className="text-5xl font-bold text-black mb-4">WHY CHOOSE FITNESS FORGE?</h2>
@@ -193,23 +193,19 @@ export default function Home() {
             <div className="overflow-hidden">
               <div
                 ref={scrollContainerRef}
-                className="flex gap-6 overflow-x-hidden scroll-smooth"
+                className="flex gap-6 overflow-x-hidden scroll-smooth transition-transform duration-500 ease-in-out"
               >
                 {features.map((feature, index) => {
                   const Icon = feature.icon;
                   return (
-                    <motion.div
+                    <div
                       key={index}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.3, delay: index * 0.05 }}
                       className="flex-shrink-0 w-[calc(25%-18px)]"
                     >
-                      <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl h-full flex flex-col">
+                      <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all duration-300 hover:shadow-xl h-full flex flex-col">
                         <motion.div 
                           whileHover={{ rotate: 360 }}
-                          transition={{ duration: 0.4 }}
+                          transition={{ duration: 0.5 }}
                           className="bg-[var(--gym-red)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
                         >
                           <Icon className="w-8 h-8 text-white" />
@@ -219,7 +215,7 @@ export default function Home() {
                           {feature.description}
                         </p>
                       </Card>
-                    </motion.div>
+                    </div>
                   );
                 })}
               </div>
