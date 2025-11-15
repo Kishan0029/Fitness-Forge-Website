@@ -4,11 +4,99 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Dumbbell, Users, Award, TrendingUp, CheckCircle, ArrowRight } from "lucide-react";
+import { Dumbbell, Users, Award, TrendingUp, CheckCircle, ArrowRight, ChevronLeft, ChevronRight, Droplets, Wind, Car } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { motion } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
 
 export default function Home() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  const features = [
+    {
+      icon: Dumbbell,
+      title: "EQUIPMENT",
+      description: "All equipment seen in fitness videos, most spacious gym in Belgaum"
+    },
+    {
+      icon: Users,
+      title: "EXPERT TRAINERS",
+      description: "Exceptional and knowledgeable trainers dedicated to your success"
+    },
+    {
+      icon: Award,
+      title: "PRISTINE FACILITIES",
+      description: "Meticulously cleaned, well-maintained, with continuous fresh air ventilation"
+    },
+    {
+      icon: TrendingUp,
+      title: "NATURE & POOL",
+      description: "Only gym in town close to nature with swimming pool facility"
+    },
+    {
+      icon: CheckCircle,
+      title: "DIET CAFE ACCESS",
+      description: "On-site nutrition cafe for healthy meals and supplements"
+    },
+    {
+      icon: Award,
+      title: "BODY COMPOSITION ANALYZER",
+      description: "Advanced technology to track your fitness progress accurately"
+    },
+    {
+      icon: Dumbbell,
+      title: "SUPPLEMENT STORE",
+      description: "Quality supplements and nutrition products available on-site"
+    },
+    {
+      icon: Wind,
+      title: "FULL BODY STEAM",
+      description: "Relax and rejuvenate with our full body steam facility"
+    },
+    {
+      icon: Droplets,
+      title: "SHOWER FACILITIES",
+      description: "Normal and hot shower options for your comfort"
+    },
+    {
+      icon: Car,
+      title: "PARKING SPACE",
+      description: "Convenient parking for both 2-wheelers and 4-wheelers"
+    }
+  ];
+
+  const scrollToIndex = (index: number) => {
+    if (scrollContainerRef.current) {
+      const container = scrollContainerRef.current;
+      const cardWidth = container.scrollWidth / features.length;
+      container.scrollTo({
+        left: cardWidth * index,
+        behavior: "smooth"
+      });
+      setCurrentIndex(index);
+    }
+  };
+
+  const handlePrevious = () => {
+    const newIndex = currentIndex === 0 ? features.length - 1 : currentIndex - 1;
+    scrollToIndex(newIndex);
+  };
+
+  const handleNext = () => {
+    const newIndex = currentIndex === features.length - 1 ? 0 : currentIndex + 1;
+    scrollToIndex(newIndex);
+  };
+
+  // Auto-scroll functionality
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleNext();
+    }, 4000); // Auto-scroll every 4 seconds
+
+    return () => clearInterval(interval);
+  }, [currentIndex]);
+
   return (
     <>
       <Navigation />
@@ -65,7 +153,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Choose Us */}
+      {/* Why Choose Us - Carousel */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
@@ -78,154 +166,76 @@ export default function Home() {
             <h2 className="text-5xl font-bold text-black mb-4">WHY CHOOSE FITNESS FORGE?</h2>
             <p className="text-xl text-[var(--gym-grey)]">Belgaum's premier fitness destination</p>
           </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: 0.05 }}
-              className="h-full"
+
+          {/* Carousel Container */}
+          <div className="relative">
+            {/* Navigation Arrows */}
+            <button
+              onClick={handlePrevious}
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-[var(--gym-red)] hover:bg-[var(--gym-red)]/90 text-white p-3 rounded-full shadow-xl transition-all hover:scale-110 -ml-4"
+              aria-label="Previous feature"
             >
-              <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl h-full flex flex-col">
-                <motion.div 
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.4 }}
-                  className="bg-[var(--gym-red)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
-                >
-                  <Dumbbell className="w-8 h-8 text-white" />
-                </motion.div>
-                <h3 className="text-2xl font-bold mb-3">EQUIPMENT</h3>
-                <p className="text-[var(--gym-grey)] flex-grow">
-                  All equipment seen in fitness videos, most spacious gym in Belgaum
-                </p>
-              </Card>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: 0.1 }}
-              className="h-full"
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+
+            <button
+              onClick={handleNext}
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-[var(--gym-red)] hover:bg-[var(--gym-red)]/90 text-white p-3 rounded-full shadow-xl transition-all hover:scale-110 -mr-4"
+              aria-label="Next feature"
             >
-              <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl h-full flex flex-col">
-                <motion.div 
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.4 }}
-                  className="bg-[var(--gym-red)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
-                >
-                  <Users className="w-8 h-8 text-white" />
-                </motion.div>
-                <h3 className="text-2xl font-bold mb-3">EXPERT TRAINERS</h3>
-                <p className="text-[var(--gym-grey)] flex-grow">
-                  Exceptional and knowledgeable trainers dedicated to your success
-                </p>
-              </Card>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: 0.15 }}
-              className="h-full"
+              <ChevronRight className="w-6 h-6" />
+            </button>
+
+            {/* Scrollable Cards Container */}
+            <div
+              ref={scrollContainerRef}
+              className="flex gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory scroll-smooth pb-4"
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
-              <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl h-full flex flex-col">
-                <motion.div 
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.4 }}
-                  className="bg-[var(--gym-red)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
-                >
-                  <Award className="w-8 h-8 text-white" />
-                </motion.div>
-                <h3 className="text-2xl font-bold mb-3">PRISTINE FACILITIES</h3>
-                <p className="text-[var(--gym-grey)] flex-grow">
-                  Meticulously cleaned, well-maintained, with continuous fresh air ventilation
-                </p>
-              </Card>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: 0.2 }}
-              className="h-full"
-            >
-              <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl h-full flex flex-col">
-                <motion.div 
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.4 }}
-                  className="bg-[var(--gym-red)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
-                >
-                  <TrendingUp className="w-8 h-8 text-white" />
-                </motion.div>
-                <h3 className="text-2xl font-bold mb-3">NATURE & POOL</h3>
-                <p className="text-[var(--gym-grey)] flex-grow">
-                  Only gym in town close to nature with swimming pool and parking facility
-                </p>
-              </Card>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: 0.25 }}
-              className="h-full"
-            >
-              <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl h-full flex flex-col">
-                <motion.div 
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.4 }}
-                  className="bg-[var(--gym-red)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
-                >
-                  <CheckCircle className="w-8 h-8 text-white" />
-                </motion.div>
-                <h3 className="text-2xl font-bold mb-3">DIET CAFE ACCESS</h3>
-                <p className="text-[var(--gym-grey)] flex-grow">
-                  On-site nutrition cafe for healthy meals and supplements
-                </p>
-              </Card>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: 0.3 }}
-              className="h-full"
-            >
-              <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl h-full flex flex-col">
-                <motion.div 
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.4 }}
-                  className="bg-[var(--gym-red)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
-                >
-                  <Award className="w-8 h-8 text-white" />
-                </motion.div>
-                <h3 className="text-2xl font-bold mb-3">BODY COMPOSITION ANALYZER</h3>
-                <p className="text-[var(--gym-grey)] flex-grow">
-                  Advanced technology to track your fitness progress accurately
-                </p>
-              </Card>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: 0.35 }}
-              className="h-full"
-            >
-              <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl h-full flex flex-col">
-                <motion.div 
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.4 }}
-                  className="bg-[var(--gym-red)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
-                >
-                  <Dumbbell className="w-8 h-8 text-white" />
-                </motion.div>
-                <h3 className="text-2xl font-bold mb-3">SUPPLEMENT STORE</h3>
-                <p className="text-[var(--gym-grey)] flex-grow">
-                  Quality supplements and nutrition products available on-site
-                </p>
-              </Card>
-            </motion.div>
+              {features.map((feature, index) => {
+                const Icon = feature.icon;
+                return (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: index * 0.05 }}
+                    className="flex-shrink-0 w-80 snap-center"
+                  >
+                    <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl h-full flex flex-col">
+                      <motion.div 
+                        whileHover={{ rotate: 360 }}
+                        transition={{ duration: 0.4 }}
+                        className="bg-[var(--gym-red)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+                      >
+                        <Icon className="w-8 h-8 text-white" />
+                      </motion.div>
+                      <h3 className="text-2xl font-bold mb-3">{feature.title}</h3>
+                      <p className="text-[var(--gym-grey)] flex-grow">
+                        {feature.description}
+                      </p>
+                    </Card>
+                  </motion.div>
+                );
+              })}
+            </div>
+
+            {/* Dots Indicator */}
+            <div className="flex justify-center gap-2 mt-6">
+              {features.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => scrollToIndex(index)}
+                  className={`w-2 h-2 rounded-full transition-all ${
+                    index === currentIndex 
+                      ? 'bg-[var(--gym-red)] w-8' 
+                      : 'bg-[var(--gym-grey)]/30 hover:bg-[var(--gym-grey)]/50'
+                  }`}
+                  aria-label={`Go to feature ${index + 1}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
