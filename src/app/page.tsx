@@ -78,7 +78,7 @@ export default function Home() {
             <h2 className="text-5xl font-bold text-black mb-4">WHY CHOOSE FITNESS FORGE?</h2>
             <p className="text-xl text-[var(--gym-grey)]">Belgaum's premier fitness destination</p>
           </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -94,9 +94,9 @@ export default function Home() {
                 >
                   <Dumbbell className="w-8 h-8 text-white" />
                 </motion.div>
-                <h3 className="text-2xl font-bold mb-3">WORLD-CLASS EQUIPMENT</h3>
+                <h3 className="text-2xl font-bold mb-3">EQUIPMENT</h3>
                 <p className="text-[var(--gym-grey)] flex-grow">
-                  All equipment from international bodybuilding videos, most spacious gym in Belgaum
+                  All equipment seen in fitness videos, most spacious gym in Belgaum
                 </p>
               </Card>
             </motion.div>
@@ -163,6 +163,69 @@ export default function Home() {
                 </p>
               </Card>
             </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: 0.25 }}
+              className="h-full"
+            >
+              <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl h-full flex flex-col">
+                <motion.div 
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.4 }}
+                  className="bg-[var(--gym-red)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+                >
+                  <CheckCircle className="w-8 h-8 text-white" />
+                </motion.div>
+                <h3 className="text-2xl font-bold mb-3">DIET CAFE ACCESS</h3>
+                <p className="text-[var(--gym-grey)] flex-grow">
+                  On-site nutrition cafe for healthy meals and supplements
+                </p>
+              </Card>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: 0.3 }}
+              className="h-full"
+            >
+              <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl h-full flex flex-col">
+                <motion.div 
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.4 }}
+                  className="bg-[var(--gym-red)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+                >
+                  <Award className="w-8 h-8 text-white" />
+                </motion.div>
+                <h3 className="text-2xl font-bold mb-3">BODY COMPOSITION ANALYZER</h3>
+                <p className="text-[var(--gym-grey)] flex-grow">
+                  Advanced technology to track your fitness progress accurately
+                </p>
+              </Card>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: 0.35 }}
+              className="h-full"
+            >
+              <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl h-full flex flex-col">
+                <motion.div 
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.4 }}
+                  className="bg-[var(--gym-red)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+                >
+                  <Dumbbell className="w-8 h-8 text-white" />
+                </motion.div>
+                <h3 className="text-2xl font-bold mb-3">SUPPLEMENT STORE</h3>
+                <p className="text-[var(--gym-grey)] flex-grow">
+                  Quality supplements and nutrition products available on-site
+                </p>
+              </Card>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -208,13 +271,13 @@ export default function Home() {
               className="relative overflow-hidden rounded-xl group cursor-pointer"
             >
               <img 
-                src="https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?w=600&q=80" 
-                alt="CrossFit"
+                src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=600&q=80" 
+                alt="Functional Training"
                 className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent flex flex-col justify-end p-6">
-                <h3 className="text-3xl font-bold mb-2">CROSSFIT</h3>
-                <p className="text-[var(--gym-grey)] mb-4">High-intensity functional fitness</p>
+                <h3 className="text-3xl font-bold mb-2">FUNCTIONAL TRAINING</h3>
+                <p className="text-[var(--gym-grey)] mb-4">Improve everyday movement and performance</p>
               </div>
             </motion.div>
             <motion.div 
@@ -226,13 +289,13 @@ export default function Home() {
               className="relative overflow-hidden rounded-xl group cursor-pointer"
             >
               <img 
-                src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&q=80" 
-                alt="Personal Training"
+                src="https://images.unsplash.com/photo-1599447292325-8fcfb6a6136e?w=600&q=80" 
+                alt="Kids Gymnastics"
                 className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent flex flex-col justify-end p-6">
-                <h3 className="text-3xl font-bold mb-2">YOGA</h3>
-                <p className="text-[var(--gym-grey)] mb-4">Mind and body wellness</p>
+                <h3 className="text-3xl font-bold mb-2">KIDS GYMNASTICS</h3>
+                <p className="text-[var(--gym-grey)] mb-4">Fun and safe fitness for children</p>
               </div>
             </motion.div>
           </div>
@@ -284,7 +347,7 @@ export default function Home() {
       {/* Stats Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <motion.div
               initial={{ opacity: 0, scale: 0 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -292,7 +355,7 @@ export default function Home() {
               transition={{ duration: 0.6, type: "spring" }}
             >
               <div className="text-5xl font-bold text-[var(--gym-red)] mb-2">
-                5000+
+                1000+
               </div>
               <div className="text-xl text-[var(--gym-grey)]">Active Members</div>
             </motion.div>
@@ -303,7 +366,7 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.1, type: "spring" }}
             >
               <div className="text-5xl font-bold text-[var(--gym-red)] mb-2">
-                50+
+                10+
               </div>
               <div className="text-xl text-[var(--gym-grey)]">Expert Trainers</div>
             </motion.div>
@@ -314,20 +377,9 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.2, type: "spring" }}
             >
               <div className="text-5xl font-bold text-[var(--gym-red)] mb-2">
-                10+
+                17+
               </div>
-              <div className="text-xl text-[var(--gym-grey)]">Years Experience</div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, scale: 0 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3, type: "spring" }}
-            >
-              <div className="text-5xl font-bold text-[var(--gym-red)] mb-2">
-                24/7
-              </div>
-              <div className="text-xl text-[var(--gym-grey)]">Access Available</div>
+              <div className="text-xl text-[var(--gym-grey)]">Years Trainers Experience</div>
             </motion.div>
           </div>
         </div>
