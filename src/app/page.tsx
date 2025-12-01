@@ -189,7 +189,7 @@ export default function Home() {
             {/* Navigation Arrows */}
             <button
               onClick={handlePrevious}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-[var(--gym-red)] hover:bg-[var(--gym-red)]/90 text-white p-3 rounded-full shadow-xl transition-all hover:scale-110 -ml-4"
+              className="absolute left-0 md:left-0 top-1/2 -translate-y-1/2 z-10 bg-[var(--gym-red)] hover:bg-[var(--gym-red)]/90 text-white p-3 rounded-full shadow-xl transition-all hover:scale-110 ml-2 md:-ml-4"
               aria-label="Previous feature"
             >
               <ChevronLeft className="w-6 h-6" />
@@ -197,14 +197,14 @@ export default function Home() {
 
             <button
               onClick={handleNext}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-[var(--gym-red)] hover:bg-[var(--gym-red)]/90 text-white p-3 rounded-full shadow-xl transition-all hover:scale-110 -mr-4"
+              className="absolute right-0 md:right-0 top-1/2 -translate-y-1/2 z-10 bg-[var(--gym-red)] hover:bg-[var(--gym-red)]/90 text-white p-3 rounded-full shadow-xl transition-all hover:scale-110 mr-2 md:-mr-4"
               aria-label="Next feature"
             >
               <ChevronRight className="w-6 h-6" />
             </button>
 
             {/* Scrollable Cards Container */}
-            <div className="overflow-hidden">
+            <div className="overflow-hidden -mx-4 md:mx-0">
               <div
                 ref={scrollContainerRef}
                 className="flex gap-0 md:gap-6 overflow-x-hidden scroll-smooth snap-x snap-mandatory"
@@ -214,7 +214,7 @@ export default function Home() {
                   return (
                     <div
                       key={index}
-                      className="flex-shrink-0 w-full md:w-[calc(25%-18px)] snap-center"
+                      className="flex-shrink-0 w-full md:w-[calc(25%-18px)] snap-center px-4 md:px-0"
                     >
                       <Card className="p-6 md:p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all duration-300 hover:shadow-xl h-full flex flex-col">
                         <motion.div 
