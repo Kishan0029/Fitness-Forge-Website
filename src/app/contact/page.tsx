@@ -124,7 +124,7 @@ export default function ContactPage() {
                       </motion.div>
                       <div>
                         <h3 className="font-bold text-lg mb-1">PHONE</h3>
-                        <p className="text-[var(--gym-grey)]">8722584343</p>
+                        <p className="text-[var(--gym-grey)]">+91 87225 84343</p>
                       </div>
                     </div>
                   </Card>
@@ -220,7 +220,7 @@ export default function ContactPage() {
                     <Input 
                       id="phone"
                       type="tel"
-                      placeholder="8722584343"
+                      placeholder="+91 87225 84343"
                       value={formData.phone}
                       onChange={(e) => setFormData({...formData, phone: e.target.value})}
                       className="mt-2 h-12"
