@@ -317,14 +317,6 @@ export default function MembershipPage() {
                     <CheckCircle className="w-4 h-4 text-[var(--gym-red)] flex-shrink-0 mt-0.5" />
                     <span>HIIT, Cross-Training & Cardiovascular Workouts</span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-[var(--gym-red)] flex-shrink-0 mt-0.5" />
-                    <span>Core Strength, Flexibility, & Mobility</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-[var(--gym-red)] flex-shrink-0 mt-0.5" />
-                    <span>Bodyweight Training & Sports-Specific Programs</span>
-                  </li>
                 </ul>
               </Card>
             </motion.div>
