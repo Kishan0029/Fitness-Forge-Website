@@ -224,7 +224,7 @@ _Sent from Fitness Forge Website_`;
                   <Input
                     id="phone"
                     type="tel"
-                    placeholder="8722584343"
+                    placeholder="+91 87225 84343"
                     value={formData.phone}
                     onChange={(e) =>
                       setFormData({ ...formData, phone: e.target.value })
@@ -294,7 +294,7 @@ _Sent from Fitness Forge Website_`;
                 </Button>
 
                 <p className="text-center text-sm text-[var(--gym-grey)]">
-                  Questions? Call us at 8722584343 or email info@fitnessforge.com
+                  Questions? Call us at +91 87225 84343 or email info@fitnessforge.com
                 </p>
               </form>
             </Card>
