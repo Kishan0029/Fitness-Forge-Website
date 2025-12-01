@@ -214,9 +214,9 @@ export default function Home() {
                   return (
                     <div
                       key={index}
-                      className="flex-shrink-0 w-full md:w-[calc(25%-18px)]"
+                      className="flex-shrink-0 w-full md:w-[calc(25%-18px)] px-2 md:px-0"
                     >
-                      <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all duration-300 hover:shadow-xl h-full flex flex-col">
+                      <Card className="p-6 md:p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all duration-300 hover:shadow-xl h-full flex flex-col">
                         <motion.div 
                           whileHover={{ rotate: 360 }}
                           transition={{ duration: 0.5 }}
@@ -224,8 +224,8 @@ export default function Home() {
                         >
                           <Icon className="w-8 h-8 text-white" />
                         </motion.div>
-                        <h3 className="text-2xl font-bold mb-3">{feature.title}</h3>
-                        <p className="text-[var(--gym-grey)] flex-grow">
+                        <h3 className="text-xl md:text-2xl font-bold mb-3">{feature.title}</h3>
+                        <p className="text-[var(--gym-grey)] text-sm md:text-base flex-grow">
                           {feature.description}
                         </p>
                       </Card>
