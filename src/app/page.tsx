@@ -70,13 +70,27 @@ export default function Home() {
     if (scrollContainerRef.current) {
       const container = scrollContainerRef.current;
       const gap = 24; // 6 in Tailwind = 24px
-      const cardWidth = (container.offsetWidth - (gap * 3)) / 4; // 4 cards visible, 3 gaps between
-      const scrollPosition = index * (cardWidth + gap);
       
-      container.scrollTo({
-        left: scrollPosition,
-        behavior: "smooth"
-      });
+      // Check if mobile view
+      const isMobile = window.innerWidth < 768;
+      
+      if (isMobile) {
+        // Mobile: 1 card visible
+        const cardWidth = container.offsetWidth;
+        const scrollPosition = index * cardWidth;
+        container.scrollTo({
+          left: scrollPosition,
+          behavior: "smooth"
+        });
+      } else {
+        // Desktop: 4 cards visible, 3 gaps between
+        const cardWidth = (container.offsetWidth - (gap * 3)) / 4;
+        const scrollPosition = index * (cardWidth + gap);
+        container.scrollTo({
+          left: scrollPosition,
+          behavior: "smooth"
+        });
+      }
       setCurrentIndex(index);
     }
   };
@@ -147,7 +161,7 @@ export default function Home() {
                 JOIN NOW
               </Button>
             </Link>
-            <Link href="/contact">
+            <Link href="/join">
               <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-black font-bold px-8 py-6 text-lg rounded-lg transition-all shadow-xs hover:scale-105">
                 BOOK A FREE TRIAL
               </Button>
@@ -200,7 +214,7 @@ export default function Home() {
                   return (
                     <div
                       key={index}
-                      className="flex-shrink-0 w-[calc(25%-18px)]"
+                      className="flex-shrink-0 w-full md:w-[calc(25%-18px)]"
                     >
                       <Card className="p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all duration-300 hover:shadow-xl h-full flex flex-col">
                         <motion.div 
