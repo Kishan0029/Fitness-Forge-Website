@@ -72,15 +72,17 @@ export default function GalleryPage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Tabs defaultValue="gym" className="w-full">
-            <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-3 mb-12 h-auto md:h-14">
-              <TabsTrigger value="gym" className="text-sm md:text-lg font-bold data-[state=active]:bg-[var(--gym-red)] data-[state=active]:text-white py-3">
-                GYM INTERIOR
+            <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-3 mb-12 h-auto">
+              <TabsTrigger value="gym" className="text-xs sm:text-sm md:text-lg font-bold data-[state=active]:bg-[var(--gym-red)] data-[state=active]:text-white py-2 md:py-3 px-1 sm:px-3">
+                <span className="hidden sm:inline">GYM INTERIOR</span>
+                <span className="sm:hidden">GYM</span>
               </TabsTrigger>
-              <TabsTrigger value="training" className="text-sm md:text-lg font-bold data-[state=active]:bg-[var(--gym-red)] data-[state=active]:text-white py-3">
+              <TabsTrigger value="training" className="text-xs sm:text-sm md:text-lg font-bold data-[state=active]:bg-[var(--gym-red)] data-[state=active]:text-white py-2 md:py-3 px-1 sm:px-3">
                 TRAINING
               </TabsTrigger>
-              <TabsTrigger value="transformations" className="text-sm md:text-lg font-bold data-[state=active]:bg-[var(--gym-red)] data-[state=active]:text-white py-3">
-                TRANSFORMATIONS
+              <TabsTrigger value="transformations" className="text-xs sm:text-sm md:text-lg font-bold data-[state=active]:bg-[var(--gym-red)] data-[state=active]:text-white py-2 md:py-3 px-1 sm:px-3">
+                <span className="hidden sm:inline">TRANSFORMATIONS</span>
+                <span className="sm:hidden">RESULTS</span>
               </TabsTrigger>
             </TabsList>
 
