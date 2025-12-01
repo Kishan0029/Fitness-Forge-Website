@@ -7,33 +7,6 @@ import { Target, Heart, Users, TrendingUp } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function AboutPage() {
-  const trainers = [
-    {
-      name: "Marcus Steel",
-      role: "Head Strength Coach",
-      image: "https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=400&q=80",
-      specialty: "Powerlifting & Olympic Lifting"
-    },
-    {
-      name: "Sarah Phoenix",
-      role: "CrossFit Director",
-      image: "https://images.unsplash.com/photo-1594381898411-846e7d193883?w=400&q=80",
-      specialty: "CrossFit & HIIT Training"
-    },
-    {
-      name: "David Forge",
-      role: "Personal Training Lead",
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&q=80",
-      specialty: "Body Transformation"
-    },
-    {
-      name: "Jessica Blaze",
-      role: "Nutrition Specialist",
-      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80",
-      specialty: "Sports Nutrition & Meal Planning"
-    }
-  ];
-
   return (
     <>
       <Navigation />
@@ -197,49 +170,6 @@ export default function AboutPage() {
                 </p>
               </Card>
             </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Our Trainers */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-5xl font-bold text-black mb-4">MEET OUR TRAINERS</h2>
-            <p className="text-xl text-[var(--gym-grey)]">Expert coaches dedicated to your success</p>
-          </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {trainers.map((trainer, index) => (
-              <motion.div
-                key={trainer.name}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
-                whileHover={{ y: -5 }}
-              >
-                <Card className="overflow-hidden border-2 hover:border-[var(--gym-red)] transition-all hover:shadow-xl">
-                  <motion.img 
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.3 }}
-                    src={trainer.image} 
-                    alt={trainer.name}
-                    className="w-full h-80 object-cover"
-                  />
-                  <div className="p-6">
-                    <h3 className="text-2xl font-bold mb-1">{trainer.name}</h3>
-                    <p className="text-[var(--gym-red)] font-semibold mb-2">{trainer.role}</p>
-                    <p className="text-[var(--gym-grey)] text-sm">{trainer.specialty}</p>
-                  </div>
-                </Card>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>
