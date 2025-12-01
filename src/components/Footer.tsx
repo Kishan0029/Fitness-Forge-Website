@@ -74,14 +74,14 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-5 h-5 text-[var(--gym-red)]" />
-                <a href="tel:8722584343" className="text-[var(--gym-grey)] text-sm hover:text-white transition-colors">
-                  8722584343
+                <a href="tel:+918722584343" className="text-[var(--gym-grey)] text-sm hover:text-white transition-colors">
+                  +91 87225 84343
                 </a>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-5 h-5 text-[var(--gym-red)]" />
-                <a href="tel:9730174828" className="text-[var(--gym-grey)] text-sm hover:text-white transition-colors">
-                  9730174828
+                <a href="tel:+919730174828" className="text-[var(--gym-grey)] text-sm hover:text-white transition-colors">
+                  +91 97301 74828
                 </a>
               </li>
               <li className="flex items-center gap-2">
