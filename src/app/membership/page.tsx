@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { CheckCircle, Info } from "lucide-react";
+import { CheckCircle, Info, Dumbbell, Award, Users } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function MembershipPage() {
@@ -266,6 +266,200 @@ export default function MembershipPage() {
                 </Card>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Personal Training Packages */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-5xl font-bold text-black mb-4">PERSONAL TRAINING</h2>
+            <p className="text-xl text-[var(--gym-grey)] mb-2">Starting at ₹5000/month</p>
+            <p className="text-lg text-[var(--gym-grey)]">Contact us at <a href="tel:+918722584343" className="text-[var(--gym-red)] font-bold hover:underline">+91 87225 84343</a> for more details</p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+            {/* Technical Fitness Skills */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+            >
+              <Card className="p-6 border-2 border-[var(--gym-grey)]/20 hover:border-[var(--gym-red)] hover:shadow-xl transition-all h-full">
+                <div className="mb-4">
+                  <div className="bg-[var(--gym-red)] w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Dumbbell className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-center mb-4">TECHNICAL FITNESS SKILLS</h3>
+                </div>
+                <ul className="space-y-2 text-sm text-[var(--gym-grey)]">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-[var(--gym-red)] flex-shrink-0 mt-0.5" />
+                    <span>Strength & Functional Training</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-[var(--gym-red)] flex-shrink-0 mt-0.5" />
+                    <span>Weight Management & Fat Loss</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-[var(--gym-red)] flex-shrink-0 mt-0.5" />
+                    <span>Muscle Gain & Endurance Coaching</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-[var(--gym-red)] flex-shrink-0 mt-0.5" />
+                    <span>HIIT, Cross-Training & Cardiovascular Workouts</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-[var(--gym-red)] flex-shrink-0 mt-0.5" />
+                    <span>Core Strength, Flexibility, & Mobility</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-[var(--gym-red)] flex-shrink-0 mt-0.5" />
+                    <span>Bodyweight Training & Sports-Specific Programs</span>
+                  </li>
+                </ul>
+              </Card>
+            </motion.div>
+
+            {/* Knowledge-Based Skills */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.2 }}
+            >
+              <Card className="p-6 border-2 border-[var(--gym-grey)]/20 hover:border-[var(--gym-red)] hover:shadow-xl transition-all h-full">
+                <div className="mb-4">
+                  <div className="bg-[var(--gym-red)] w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Award className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-center mb-4">KNOWLEDGE-BASED SKILLS</h3>
+                </div>
+                <ul className="space-y-2 text-sm text-[var(--gym-grey)]">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-[var(--gym-red)] flex-shrink-0 mt-0.5" />
+                    <span>Form & Technique Correction</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-[var(--gym-red)] flex-shrink-0 mt-0.5" />
+                    <span>Basic Nutrition & Supplement Guidance</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-[var(--gym-red)] flex-shrink-0 mt-0.5" />
+                    <span>Injury Prevention & Body Assessment</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-[var(--gym-red)] flex-shrink-0 mt-0.5" />
+                    <span>Custom Workout Planning & Periodization</span>
+                  </li>
+                </ul>
+              </Card>
+            </motion.div>
+
+            {/* Client Handling Skills */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.3 }}
+            >
+              <Card className="p-6 border-2 border-[var(--gym-grey)]/20 hover:border-[var(--gym-red)] hover:shadow-xl transition-all h-full">
+                <div className="mb-4">
+                  <div className="bg-[var(--gym-red)] w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Users className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-center mb-4">CLIENT HANDLING SKILLS</h3>
+                </div>
+                <ul className="space-y-2 text-sm text-[var(--gym-grey)]">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-[var(--gym-red)] flex-shrink-0 mt-0.5" />
+                    <span>Personalized Workout Programs</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-[var(--gym-red)] flex-shrink-0 mt-0.5" />
+                    <span>Progress Tracking & Goal Setting (SMART Goals)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-[var(--gym-red)] flex-shrink-0 mt-0.5" />
+                    <span>Client Motivation & Relationship Building</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-[var(--gym-red)] flex-shrink-0 mt-0.5" />
+                    <span>Fitness Assessments & Reporting</span>
+                  </li>
+                </ul>
+              </Card>
+            </motion.div>
+
+            {/* Communication & Coaching Skills */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.4 }}
+            >
+              <Card className="p-6 border-2 border-[var(--gym-grey)]/20 hover:border-[var(--gym-red)] hover:shadow-xl transition-all h-full">
+                <div className="mb-4">
+                  <div className="bg-[var(--gym-red)] w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Users className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-center mb-4">COMMUNICATION & COACHING</h3>
+                </div>
+                <ul className="space-y-2 text-sm text-[var(--gym-grey)]">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-[var(--gym-red)] flex-shrink-0 mt-0.5" />
+                    <span>Clear Communication & Active Listening</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-[var(--gym-red)] flex-shrink-0 mt-0.5" />
+                    <span>Exercise Demonstration & Corrective Feedback</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-[var(--gym-red)] flex-shrink-0 mt-0.5" />
+                    <span>Positive Reinforcement & Empathy</span>
+                  </li>
+                </ul>
+              </Card>
+            </motion.div>
+
+            {/* Professional & Organizational Skills */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.5 }}
+            >
+              <Card className="p-6 border-2 border-[var(--gym-grey)]/20 hover:border-[var(--gym-red)] hover:shadow-xl transition-all h-full">
+                <div className="mb-4">
+                  <div className="bg-[var(--gym-red)] w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Award className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-center mb-4">PROFESSIONAL SKILLS</h3>
+                </div>
+                <ul className="space-y-2 text-sm text-[var(--gym-grey)]">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-[var(--gym-red)] flex-shrink-0 mt-0.5" />
+                    <span>Time Management & Session Planning</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-[var(--gym-red)] flex-shrink-0 mt-0.5" />
+                    <span>Record Keeping & Confidentiality</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-[var(--gym-red)] flex-shrink-0 mt-0.5" />
+                    <span>Punctuality, Consistency, & Discipline</span>
+                  </li>
+                </ul>
+              </Card>
+            </motion.div>
           </div>
         </div>
       </section>

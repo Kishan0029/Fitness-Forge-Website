@@ -72,20 +72,20 @@ export default function GalleryPage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Tabs defaultValue="gym" className="w-full">
-            <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-3 mb-12 h-14">
-              <TabsTrigger value="gym" className="text-lg font-bold data-[state=active]:bg-[var(--gym-red)] data-[state=active]:text-white">
+            <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-3 mb-12 h-auto md:h-14">
+              <TabsTrigger value="gym" className="text-sm md:text-lg font-bold data-[state=active]:bg-[var(--gym-red)] data-[state=active]:text-white py-3">
                 GYM INTERIOR
               </TabsTrigger>
-              <TabsTrigger value="training" className="text-lg font-bold data-[state=active]:bg-[var(--gym-red)] data-[state=active]:text-white">
+              <TabsTrigger value="training" className="text-sm md:text-lg font-bold data-[state=active]:bg-[var(--gym-red)] data-[state=active]:text-white py-3">
                 TRAINING
               </TabsTrigger>
-              <TabsTrigger value="transformations" className="text-lg font-bold data-[state=active]:bg-[var(--gym-red)] data-[state=active]:text-white">
+              <TabsTrigger value="transformations" className="text-sm md:text-lg font-bold data-[state=active]:bg-[var(--gym-red)] data-[state=active]:text-white py-3">
                 TRANSFORMATIONS
               </TabsTrigger>
             </TabsList>
 
             <TabsContent value="gym">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                 {gymInterior.map((image, index) => (
                   <motion.div 
                     key={index}
@@ -100,7 +100,7 @@ export default function GalleryPage() {
                     <img 
                       src={image} 
                       alt={`Gym interior ${index + 1}`}
-                      className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-300"
+                      className="w-full h-64 md:h-80 object-cover group-hover:scale-110 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all flex items-center justify-center">
                       <span className="text-white font-bold text-lg opacity-0 group-hover:opacity-100 transition-opacity">
@@ -113,7 +113,7 @@ export default function GalleryPage() {
             </TabsContent>
 
             <TabsContent value="training">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                 {training.map((image, index) => (
                   <motion.div 
                     key={index}
@@ -128,7 +128,7 @@ export default function GalleryPage() {
                     <img 
                       src={image} 
                       alt={`Training ${index + 1}`}
-                      className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-300"
+                      className="w-full h-64 md:h-80 object-cover group-hover:scale-110 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all flex items-center justify-center">
                       <span className="text-white font-bold text-lg opacity-0 group-hover:opacity-100 transition-opacity">
@@ -141,7 +141,7 @@ export default function GalleryPage() {
             </TabsContent>
 
             <TabsContent value="transformations">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                 {transformations.map((image, index) => (
                   <motion.div 
                     key={index}
@@ -156,7 +156,7 @@ export default function GalleryPage() {
                     <img 
                       src={image} 
                       alt={`Transformation ${index + 1}`}
-                      className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-300"
+                      className="w-full h-64 md:h-80 object-cover group-hover:scale-110 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all flex items-center justify-center">
                       <span className="text-white font-bold text-lg opacity-0 group-hover:opacity-100 transition-opacity">
