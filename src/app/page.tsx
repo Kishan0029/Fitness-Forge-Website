@@ -75,7 +75,7 @@ export default function Home() {
       const isMobile = window.innerWidth < 768;
       
       if (isMobile) {
-        // Mobile: 1 card visible
+        // Mobile: 1 card visible, no gap
         const cardWidth = container.offsetWidth;
         const scrollPosition = index * cardWidth;
         container.scrollTo({
@@ -204,17 +204,17 @@ export default function Home() {
             </button>
 
             {/* Scrollable Cards Container */}
-            <div className="overflow-hidden px-4 md:px-0">
+            <div className="overflow-hidden">
               <div
                 ref={scrollContainerRef}
-                className="flex gap-4 md:gap-6 overflow-x-hidden scroll-smooth transition-transform duration-500 ease-in-out"
+                className="flex gap-0 md:gap-6 overflow-x-hidden scroll-smooth snap-x snap-mandatory"
               >
                 {features.map((feature, index) => {
                   const Icon = feature.icon;
                   return (
                     <div
                       key={index}
-                      className="flex-shrink-0 w-[calc(100%-2rem)] md:w-[calc(25%-18px)]"
+                      className="flex-shrink-0 w-full md:w-[calc(25%-18px)] snap-center"
                     >
                       <Card className="p-6 md:p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all duration-300 hover:shadow-xl h-full flex flex-col">
                         <motion.div 
