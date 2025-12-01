@@ -204,19 +204,19 @@ export default function Home() {
             </button>
 
             {/* Scrollable Cards Container */}
-            <div className="overflow-hidden">
+            <div className="overflow-hidden px-4 md:px-0">
               <div
                 ref={scrollContainerRef}
-                className="flex gap-0 md:gap-6 overflow-x-hidden scroll-smooth transition-transform duration-500 ease-in-out"
+                className="flex gap-4 md:gap-6 overflow-x-hidden scroll-smooth transition-transform duration-500 ease-in-out"
               >
                 {features.map((feature, index) => {
                   const Icon = feature.icon;
                   return (
                     <div
                       key={index}
-                      className="flex-shrink-0 w-full md:w-[calc(25%-18px)]"
+                      className="flex-shrink-0 w-[calc(100%-2rem)] md:w-[calc(25%-18px)]"
                     >
-                      <Card className="p-6 md:p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all duration-300 hover:shadow-xl h-full flex flex-col mx-2 md:mx-0">
+                      <Card className="p-6 md:p-8 text-center border-2 hover:border-[var(--gym-red)] transition-all duration-300 hover:shadow-xl h-full flex flex-col">
                         <motion.div 
                           whileHover={{ rotate: 360 }}
                           transition={{ duration: 0.5 }}
