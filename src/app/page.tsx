@@ -71,8 +71,9 @@ export default function Home() {
       const container = scrollContainerRef.current;
       const gap = 24; // 6 in Tailwind = 24px
       
-      // Check if mobile view
+      // Check viewport size
       const isMobile = window.innerWidth < 768;
+      const isDesktop = window.innerWidth >= 1024;
       
       if (isMobile) {
         // Mobile: 1 card visible, no gap
@@ -82,8 +83,16 @@ export default function Home() {
           left: scrollPosition,
           behavior: "smooth"
         });
+      } else if (isDesktop) {
+        // Desktop: 1 card visible, full width
+        const cardWidth = container.offsetWidth;
+        const scrollPosition = index * cardWidth;
+        container.scrollTo({
+          left: scrollPosition,
+          behavior: "smooth"
+        });
       } else {
-        // Desktop: 4 cards visible, 3 gaps between
+        // Tablet: 4 cards visible, 3 gaps between
         const cardWidth = (container.offsetWidth - (gap * 3)) / 4;
         const scrollPosition = index * (cardWidth + gap);
         container.scrollTo({
