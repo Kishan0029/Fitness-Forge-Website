@@ -122,7 +122,7 @@ export default function Footer() {
           <p className="text-[var(--gym-grey)] text-sm mt-2">
             Developed by{" "}
             <a
-              href="https://www.gonextverse.com"
+              href="https://www.gonextverse.in"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[var(--gym-red)] hover:text-white transition-colors"
