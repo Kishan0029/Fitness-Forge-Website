@@ -119,6 +119,17 @@ export default function Footer() {
           <p className="text-[var(--gym-grey)] text-sm">
             © {new Date().getFullYear()} Fitness Forge Gym. All rights reserved. Forge Your Strength. Build Your Legacy.
           </p>
+          <p className="text-[var(--gym-grey)] text-sm mt-2">
+            Developed by{" "}
+            <a
+              href="https://www.gonextverse.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[var(--gym-red)] hover:text-white transition-colors"
+            >
+              Nextverse
+            </a>
+          </p>
         </div>
       </div>
     </footer>
