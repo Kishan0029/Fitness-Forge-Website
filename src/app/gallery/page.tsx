@@ -3,38 +3,22 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useState } from "react";
-import { Card } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function GalleryPage() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const gymInterior = [
-    "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80",
-    "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=800&q=80",
-    "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=800&q=80",
-    "https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=800&q=80",
-    "https://images.unsplash.com/photo-1576678927484-cc907957088c?w=800&q=80",
-    "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&q=80"
-  ];
-
-  const training = [
-    "https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?w=800&q=80",
-    "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&q=80",
-    "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80",
-    "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=800&q=80",
-    "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=800&q=80",
-    "https://images.unsplash.com/photo-1605296867304-46d5465a13f1?w=800&q=80"
-  ];
-
-  const transformations = [
-    "https://images.unsplash.com/photo-1623874228601-f4193c7b1818?w=800&q=80",
-    "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=800&q=80",
-    "https://images.unsplash.com/photo-1574680178050-55c6a6a96e0a?w=800&q=80",
-    "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&q=80",
-    "https://images.unsplash.com/photo-1519505907962-0a6cb0167c73?w=800&q=80",
-    "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=800&q=80"
+    "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/832196e6-00da-48a4-8759-95d70ba5b49d/1-resized-1768320837622.webp?width=8000&height=8000&resize=contain",
+    "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/832196e6-00da-48a4-8759-95d70ba5b49d/2-resized-1768320837624.webp?width=8000&height=8000&resize=contain",
+    "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/832196e6-00da-48a4-8759-95d70ba5b49d/3-resized-1768320837629.webp?width=8000&height=8000&resize=contain",
+    "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/832196e6-00da-48a4-8759-95d70ba5b49d/4-resized-1768320837622.webp?width=8000&height=8000&resize=contain",
+    "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/832196e6-00da-48a4-8759-95d70ba5b49d/5-resized-1768320837621.webp?width=8000&height=8000&resize=contain",
+    "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/832196e6-00da-48a4-8759-95d70ba5b49d/6-resized-1768320837623.webp?width=8000&height=8000&resize=contain",
+    "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/832196e6-00da-48a4-8759-95d70ba5b49d/7-resized-1768320837622.webp?width=8000&height=8000&resize=contain",
+    "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/832196e6-00da-48a4-8759-95d70ba5b49d/8-resized-1768320837626.webp?width=8000&height=8000&resize=contain",
+    "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/832196e6-00da-48a4-8759-95d70ba5b49d/9-resized-1768320837624.webp?width=8000&height=8000&resize=contain",
+    "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/832196e6-00da-48a4-8759-95d70ba5b49d/10-resized-1768320837626.webp?width=8000&height=8000&resize=contain"
   ];
 
   return (
@@ -45,7 +29,7 @@ export default function GalleryPage() {
       <section 
         className="relative h-[60vh] flex items-center justify-center bg-cover bg-center"
         style={{
-          backgroundImage: "linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&q=80')"
+          backgroundImage: "linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/832196e6-00da-48a4-8759-95d70ba5b49d/2-resized-1768320837624.webp?width=1920&q=80')"
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 pt-20">
@@ -71,105 +55,36 @@ export default function GalleryPage() {
       {/* Gallery Content */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Tabs defaultValue="gym" className="w-full">
-            <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-3 mb-12 h-auto">
-              <TabsTrigger value="gym" className="text-xs sm:text-sm md:text-lg font-bold data-[state=active]:bg-[var(--gym-red)] data-[state=active]:text-white py-2 md:py-3 px-1 sm:px-3">
-                <span className="hidden sm:inline">GYM INTERIOR</span>
-                <span className="sm:hidden">GYM</span>
-              </TabsTrigger>
-              <TabsTrigger value="training" className="text-xs sm:text-sm md:text-lg font-bold data-[state=active]:bg-[var(--gym-red)] data-[state=active]:text-white py-2 md:py-3 px-1 sm:px-3">
-                TRAINING
-              </TabsTrigger>
-              <TabsTrigger value="transformations" className="text-xs sm:text-sm md:text-lg font-bold data-[state=active]:bg-[var(--gym-red)] data-[state=active]:text-white py-2 md:py-3 px-1 sm:px-3">
-                <span className="hidden sm:inline">TRANSFORMATIONS</span>
-                <span className="sm:hidden">RESULTS</span>
-              </TabsTrigger>
-            </TabsList>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">GYM INTERIOR</h2>
+            <div className="w-24 h-1 bg-[var(--gym-red)] mx-auto"></div>
+          </div>
 
-            <TabsContent value="gym">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-                {gymInterior.map((image, index) => (
-                  <motion.div 
-                    key={index}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: index * 0.03 }}
-                    whileHover={{ scale: 1.05 }}
-                    className="relative overflow-hidden rounded-xl cursor-pointer group"
-                    onClick={() => setSelectedImage(image)}
-                  >
-                    <img 
-                      src={image} 
-                      alt={`Gym interior ${index + 1}`}
-                      className="w-full h-64 md:h-80 object-cover group-hover:scale-110 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all flex items-center justify-center">
-                      <span className="text-white font-bold text-lg opacity-0 group-hover:opacity-100 transition-opacity">
-                        VIEW
-                      </span>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </TabsContent>
-
-            <TabsContent value="training">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-                {training.map((image, index) => (
-                  <motion.div 
-                    key={index}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: index * 0.03 }}
-                    whileHover={{ scale: 1.05 }}
-                    className="relative overflow-hidden rounded-xl cursor-pointer group"
-                    onClick={() => setSelectedImage(image)}
-                  >
-                    <img 
-                      src={image} 
-                      alt={`Training ${index + 1}`}
-                      className="w-full h-64 md:h-80 object-cover group-hover:scale-110 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all flex items-center justify-center">
-                      <span className="text-white font-bold text-lg opacity-0 group-hover:opacity-100 transition-opacity">
-                        VIEW
-                      </span>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </TabsContent>
-
-            <TabsContent value="transformations">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-                {transformations.map((image, index) => (
-                  <motion.div 
-                    key={index}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: index * 0.03 }}
-                    whileHover={{ scale: 1.05 }}
-                    className="relative overflow-hidden rounded-xl cursor-pointer group"
-                    onClick={() => setSelectedImage(image)}
-                  >
-                    <img 
-                      src={image} 
-                      alt={`Transformation ${index + 1}`}
-                      className="w-full h-64 md:h-80 object-cover group-hover:scale-110 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all flex items-center justify-center">
-                      <span className="text-white font-bold text-lg opacity-0 group-hover:opacity-100 transition-opacity">
-                        VIEW
-                      </span>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </TabsContent>
-          </Tabs>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            {gymInterior.map((image, index) => (
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: index * 0.03 }}
+                whileHover={{ scale: 1.05 }}
+                className="relative overflow-hidden rounded-xl cursor-pointer group"
+                onClick={() => setSelectedImage(image)}
+              >
+                <img 
+                  src={image} 
+                  alt={`Gym interior ${index + 1}`}
+                  className="w-full h-64 md:h-80 object-cover group-hover:scale-110 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all flex items-center justify-center">
+                  <span className="text-white font-bold text-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                    VIEW
+                  </span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
