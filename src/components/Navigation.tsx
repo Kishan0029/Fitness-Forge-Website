@@ -39,13 +39,14 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center group -ml-16 sm:ml-0">
-            <div className="flex items-center gap-2 group-hover:scale-105 transition-transform duration-300">
-              <div className="w-12 h-12 bg-[var(--gym-red)] rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">FF</span>
-              </div>
-              <div className="hidden sm:block">
-                <h1 className="text-white font-bold text-lg">Fitness Forge</h1>
-              </div>
+            <div className="relative w-64 h-20 group-hover:scale-105 transition-transform duration-300">
+              <Image
+                src="/fitness-forge-logo.png"
+                alt="Fitness Forge Logo"
+                fill
+                className="object-contain"
+                priority
+              />
             </div>
           </Link>
 

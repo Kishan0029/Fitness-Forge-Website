@@ -7,23 +7,22 @@ export default function Footer() {
     <footer className="bg-black text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Brand */}
-              <div>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="relative w-[54px] h-[54px]">
-                    <Image
-                        src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1762113469157.png?width=8000&height=8000&resize=contain"
-                        alt="Fitness Forge Logo"
-                        fill
-                        className="object-contain"
-                      />
-                  </div>
-                  <span className="text-xl font-bold tracking-wide">FITNESS FORGE</span>
-                </div>
-                <p className="text-[var(--gym-grey)] text-sm">
-                  Forge Your Strength. Build Your Legacy. Join us and transform your life.
-                </p>
+          {/* Brand */}
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="relative w-48 h-20">
+                <Image
+                  src="/fitness-forge-logo.png"
+                  alt="Fitness Forge Logo"
+                  fill
+                  className="object-contain"
+                />
               </div>
+            </div>
+            <p className="text-[var(--gym-grey)] text-sm">
+              Forge Your Strength. Build Your Legacy. Join us and transform your life.
+            </p>
+          </div>
 
           {/* Quick Links */}
           <div>
