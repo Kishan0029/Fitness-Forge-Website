@@ -12,12 +12,17 @@ export default function GalleryPage() {
     "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/832196e6-00da-48a4-8759-95d70ba5b49d/1-resized-1768320837622.webp?width=8000&height=8000&resize=contain",
     "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/832196e6-00da-48a4-8759-95d70ba5b49d/2-resized-1768320837624.webp?width=8000&height=8000&resize=contain",
     "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/832196e6-00da-48a4-8759-95d70ba5b49d/3-resized-1768320837629.webp?width=8000&height=8000&resize=contain",
+    "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/832196e6-00da-48a4-8759-95d70ba5b49d/4-resized-1768320837622.webp?width=8000&height=8000&resize=contain",
     "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/832196e6-00da-48a4-8759-95d70ba5b49d/5-resized-1768320837621.webp?width=8000&height=8000&resize=contain",
     "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/832196e6-00da-48a4-8759-95d70ba5b49d/6-resized-1768320837623.webp?width=8000&height=8000&resize=contain",
+    "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/832196e6-00da-48a4-8759-95d70ba5b49d/7-resized-1768320837622.webp?width=8000&height=8000&resize=contain",
     "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/832196e6-00da-48a4-8759-95d70ba5b49d/8-resized-1768320837626.webp?width=8000&height=8000&resize=contain",
+    "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/832196e6-00da-48a4-8759-95d70ba5b49d/9-resized-1768320837624.webp?width=8000&height=8000&resize=contain",
+    "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/832196e6-00da-48a4-8759-95d70ba5b49d/10-resized-1768320837626.webp?width=8000&height=8000&resize=contain",
     "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/832196e6-00da-48a4-8759-95d70ba5b49d/15-resized-1768320875220.webp?width=8000&height=8000&resize=contain",
     "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/832196e6-00da-48a4-8759-95d70ba5b49d/11-resized-1768320875272.webp?width=8000&height=8000&resize=contain",
-    "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/832196e6-00da-48a4-8759-95d70ba5b49d/12-resized-1768320875220.webp?width=8000&height=8000&resize=contain"
+    "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/832196e6-00da-48a4-8759-95d70ba5b49d/12-resized-1768320875220.webp?width=8000&height=8000&resize=contain",
+    "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/832196e6-00da-48a4-8759-95d70ba5b49d/13-resized-1768320875273.webp?width=8000&height=8000&resize=contain"
   ];
 
   return (
