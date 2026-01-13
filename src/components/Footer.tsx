@@ -10,17 +10,13 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="relative w-16 h-16">
+              <div className="relative w-48 h-20">
                 <Image
-                  src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1762113469157.png?width=8000&height=8000&resize=contain"
+                  src="/fitness-forge-logo.png"
                   alt="Fitness Forge Logo"
                   fill
-                  className="object-contain brightness-0 invert"
+                  className="object-contain"
                 />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-xl font-bold tracking-wider">FITNESS FORGE</span>
-                <span className="text-xs text-[var(--gym-grey)]">BUILD YOUR LEGACY</span>
               </div>
             </div>
             <p className="text-[var(--gym-grey)] text-sm">
