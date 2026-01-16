@@ -7,22 +7,23 @@ export default function Footer() {
     <footer className="bg-black text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Brand */}
-            <div>
-              <div className="mb-4">
-                <div className="relative w-[51px] h-[51px]">
-                  <Image
-                    src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/832196e6-00da-48a4-8759-95d70ba5b49d/IMG_2295-1768643882645.PNG?width=8000&height=8000&resize=contain"
-                    alt="Fitness Forge Logo"
-                    fill
-                    className="object-contain"
-                  />
+            {/* Brand */}
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="relative w-[54px] h-[54px]">
+                    <Image
+                      src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/832196e6-00da-48a4-8759-95d70ba5b49d/Bright%20Colorful%20Playful%20Funny%20Donuts%20Food%20Circle%20Logo-1750238839295.png?width=8000&height=8000&resize=contain"
+                      alt="Fitness Forge Logo"
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                  <span className="text-xl font-bold tracking-wide">FITNESS FORGE</span>
                 </div>
+                <p className="text-[var(--gym-grey)] text-sm">
+                  Forge Your Strength. Build Your Legacy. Join us and transform your life.
+                </p>
               </div>
-              <p className="text-[var(--gym-grey)] text-sm">
-                Forge Your Strength. Build Your Legacy. Join us and transform your life.
-              </p>
-            </div>
 
           {/* Quick Links */}
           <div>
