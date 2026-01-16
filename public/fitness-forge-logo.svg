@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 120" width="500" height="120">
+  <!-- Red rounded square background -->
+  <rect x="15" y="15" width="90" height="90" rx="12" ry="12" fill="#E53E3E"/>
+  
+  <!-- FF text -->
+  <text x="60" y="75" font-size="48" font-weight="bold" fill="white" text-anchor="middle" font-family="Arial, sans-serif">FF</text>
+  
+  <!-- FITNESS FORGE text -->
+  <text x="125" y="45" font-size="28" font-weight="bold" fill="white" font-family="Arial, sans-serif">FITNESS FORGE</text>
+  
+  <!-- Red line under text -->
+  <line x1="125" y1="60" x2="480" y2="60" stroke="#E53E3E" stroke-width="3"/>
+</svg>
