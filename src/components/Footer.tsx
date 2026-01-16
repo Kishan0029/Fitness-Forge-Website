@@ -12,11 +12,11 @@ export default function Footer() {
                 <div className="flex items-center gap-3 mb-4">
                   <div className="relative w-[54px] h-[54px]">
                     <Image
-                      src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/832196e6-00da-48a4-8759-95d70ba5b49d/Bright%20Colorful%20Playful%20Funny%20Donuts%20Food%20Circle%20Logo-1750238839295.png?width=8000&height=8000&resize=contain"
-                      alt="Fitness Forge Logo"
-                      fill
-                      className="object-contain"
-                    />
+                        src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/832196e6-00da-48a4-8759-95d70ba5b49d/Bright%20Colorful%20Playful%20Funny%20Donuts%20Food%20Circle%20Logo-1750238839295.png"
+                        alt="Fitness Forge Logo"
+                        fill
+                        className="object-contain"
+                      />
                   </div>
                   <span className="text-xl font-bold tracking-wide">FITNESS FORGE</span>
                 </div>
