@@ -1,11 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
+import { Button } from "../components/ui/button";
+import Navigation from "../components/Navigation";
+import Footer from "../components/Footer";
 import { Dumbbell, Users, Award, TrendingUp, CheckCircle, ArrowRight, ChevronLeft, ChevronRight, Droplets, Wind, Car } from "lucide-react";
-import { Card } from "@/components/ui/card";
+import { Card } from "../components/ui/card";
 import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 
