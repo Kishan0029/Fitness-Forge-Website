@@ -7,6 +7,9 @@ import Script from "next/script";
 export const metadata: Metadata = {
   title: "Fitness Forge Gym - Forge Your Strength. Build Your Legacy.",
   description: "Transform your body and mind at Fitness Forge. Premier gym offering strength training, CrossFit, personal training, Zumba, and nutrition plans. Join our community today!",
+  icons: {
+    icon: "/fitness-forge-logo.svg",
+  },
 };
 
 export default function RootLayout({

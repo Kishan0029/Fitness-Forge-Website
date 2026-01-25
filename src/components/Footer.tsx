@@ -10,13 +10,17 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="relative w-48 h-20">
+              <div className="relative w-20 h-20">
                 <Image
                   src="/fitness-forge-logo.png"
                   alt="Fitness Forge Logo"
                   fill
                   className="object-contain"
                 />
+              </div>
+              <div>
+                <h2 className="text-xl font-bold text-white">FITNESS FORGE</h2>
+                <p className="text-xs text-[var(--gym-red)]">BUILD YOUR LEGACY</p>
               </div>
             </div>
             <p className="text-[var(--gym-grey)] text-sm">
